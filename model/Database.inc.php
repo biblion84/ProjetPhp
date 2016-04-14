@@ -34,8 +34,23 @@ class Database {
 	 *		title char(255),
 	 *		count integer);
 	 */
-	private function createDataBase() {
-		/* TODO START */
+	 private function createDataBase() {
+		 /* TODO START */
+		 $this->connection->exec("CREATE TABLE IF NOT EXISTS users (".
+		 " nickname char(20),".
+		 " password char(50)".
+		 ");");
+		 $this->connection->exec("CREATE TABLE IF NOT EXISTS surveys (".
+		 " id integer primary key autoincrement,".
+		 " owner char(20),".
+		 " question char(255)".
+		 ");");
+		 $this->connection->exec("CREATE TABLE IF NOT EXISTS responses (".
+		 " id integer primary key autoincrement,".
+		 " id_survey integer,".
+		 " title char(255),".
+		 " count integer".
+		 ");");
 		/* TODO END */
 	}
 
