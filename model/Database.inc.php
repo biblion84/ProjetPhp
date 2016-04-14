@@ -4,6 +4,7 @@ require_once("model/Response.inc.php");
 
 class Database {
 
+	private $connectDB;
 	private $connection;
 
 	/**
@@ -17,6 +18,11 @@ class Database {
 		$dbLogin = "root";
 		$url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
 		//$url = 'sqlite:database.sqlite';
+
+		// Les deux lignes de dessous ajoutés pour créer la BDD si elle n'existe pas
+		$this->connectDB = new PDO("mysql:host=$dbHost", $dbLogin, $dbPass);
+		$this->connectDB->exec ("CREATE DATABASE IF NOT EXISTS $dbBd;");
+
 		$this->connection = new PDO($url, $dbLogin, $dbPass);
 		if (!$this->connection) die("impossible d'ouvrir la base de données");
 		$this->createDataBase();
@@ -37,19 +43,24 @@ class Database {
 	 private function createDataBase() {
 		 /* TODO START */
 		 $this->connection->exec("CREATE TABLE IF NOT EXISTS users (".
-		 " nickname char(20),".
-		 " password char(50)".
+		 " id INT NOT NULL AUTO_INCREMENT,". // ajout d'un id, c'est impératif
+		 " nickname varchar(20) NOT NULL,".
+		 " email varchar(30) NOT NULL,". // ajout d'un email !
+		 " password varchar(255) NOT NULL,". // 255 me parrait plus approprié pour un mdp
+		 " primary key ( id )".
 		 ");");
 		 $this->connection->exec("CREATE TABLE IF NOT EXISTS surveys (".
-		 " id integer primary key autoincrement,".
-		 " owner char(20),".
-		 " question char(255)".
+		 " id INT NOT NULL AUTO_INCREMENT,".
+		 " owner varchar(20) NOT NULL,".
+		 " question varchar(255) NOT NULL,".
+		 " primary key ( id )".
 		 ");");
 		 $this->connection->exec("CREATE TABLE IF NOT EXISTS responses (".
-		 " id integer primary key autoincrement,".
-		 " id_survey integer,".
-		 " title char(255),".
-		 " count integer".
+		 " id INT NOT NULL AUTO_INCREMENT,".
+		 " id_survey integer NOT NULL,".
+		 " title varchar(255) NOT NULL,".
+		 " count integer NOT NULL,".
+		 " primary key ( id )".
 		 ");");
 		/* TODO END */
 	}
