@@ -60,7 +60,8 @@ class Database {
 		 " id_survey integer NOT NULL,".
 		 " title varchar(255) NOT NULL,".
 		 " count integer NOT NULL,".
-		 " primary key ( id )".
+		 " primary key ( id ),".
+		 " FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 		 ");");
 		/* TODO END */
 	}
