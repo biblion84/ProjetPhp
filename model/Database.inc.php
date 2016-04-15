@@ -69,7 +69,6 @@ class Database {
 	  "FOREIGN KEY (id_owner) REFERENCES users(id),".
 	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 	 	");");
-		/* TODO END */
 	}
 
 	/**
@@ -80,8 +79,8 @@ class Database {
 	 * @return boolean True si le pseudonyme est valide, false sinon.
 	 */
 	private function checkNicknameValidity($nickname) {
-		/* TODO START */
-		/* TODO END */
+		if (strlen($nickname) < 3 || strlen($nickname) > 10 || ctype_alpha($nickname) == true) return true;
+		else return false;
 	}
 
 	/**
@@ -92,8 +91,8 @@ class Database {
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
-		/* TODO START */
-		/* TODO END */
+		if (strlen($password) < 3 || strlen($password) > 10) return true;
+		else return false;
 	}
 
 	/**
@@ -104,6 +103,7 @@ class Database {
 	 */
 	private function checkNicknameAvailability($nickname) {
 		/* TODO START */
+		return true; // A MODIFIER PLUS TARD !
 		/* TODO END */
 	}
 
@@ -116,6 +116,7 @@ class Database {
 	 */
 	public function checkPassword($nickname, $password) {
 		/* TODO START */
+		return true; // A MODIFIER PLUS TARD !
 		/* TODO END */
 	}
 

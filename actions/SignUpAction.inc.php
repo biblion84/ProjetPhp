@@ -11,8 +11,8 @@ class SignUpAction extends Action {
 	 * Le compte est crée à l'aide de la méthode 'addUser' de la classe Database.
 	 *
 	 * Si la fonction 'addUser' retourne une erreur ou si le mot de passe et sa confirmation
-	 * sont différents, on envoie l'utilisateur vers la vue 'SignUpForm' contenant 
-	 * le message retourné par 'addUser' ou la chaîne "Le mot de passe et sa confirmation 
+	 * sont différents, on envoie l'utilisateur vers la vue 'SignUpForm' contenant
+	 * le message retourné par 'addUser' ou la chaîne "Le mot de passe et sa confirmation
 	 * sont différents.";
 	 *
 	 * Si l'inscription est validée, le visiteur est envoyé vers la vue 'MessageView' avec
