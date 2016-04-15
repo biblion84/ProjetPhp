@@ -133,8 +133,21 @@ class Database {
 	 */
 	public function addUser($nickname, $password) {
 	  /* TODO START */
+		if (checkNicknameValidity($nickname) == false) {
+			return "Le pseudo doit contenir entre 3 et 10 lettres.";
+		}
+		elseif (checkPasswordValidity($password) == false) {
+			return "Le mot de passe doit contenir entre 3 et 10 caractères.";
+		}
+		elseif (checkNicknameAvailability($nickname) == false) {
+			return "Le pseudo existe déjà.";
+		}
+		else {
+			// AJOUTER USER ICI
+			return true;
+		}
 	  /* TODO END */
-	  return true;
+
 	}
 
 	/**
