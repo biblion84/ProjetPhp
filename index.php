@@ -37,6 +37,6 @@ function getAction() {
 $action = getAction();
 $action->run();
 $view = $action->getView();
-$action->getView()->setLogin($action->getSessionLogin());
+$action->getView()->setLogin($action->getSessionLogin()); // il semble y avoir un probleme ici avec setLogin
 $view->run();
 ?>
