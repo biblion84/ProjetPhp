@@ -2,6 +2,7 @@
 On va tout niquer
 A fond jte jure !
 
+-----------------------------------------------------------------------------
 
 Voilà l'array des actions possibles sur le site :
 
@@ -20,6 +21,7 @@ Voilà l'array des actions possibles sur le site :
 			
 Pour lancer une action il suffit de faire http://localhost/ProjetPhp/index.php?action=SignUpForm 
 
+Dans la page principale, REQUEST récupère les POST ou GET ?action qu'on lui envoie et renvoie la portion de page qu'il faut en fonction.
 Vous pouvez remplacer SignUpForm par l'action dont vous avez besoin.
 
 -----------------------------------------------------------------------------
