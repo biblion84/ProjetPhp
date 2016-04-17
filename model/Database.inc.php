@@ -174,9 +174,12 @@ class Database {
 	 * @return boolean|string True si le mot de passe a été modifié, un message d'erreur sinon.
 	 */
 	public function updateUser($nickname, $password) {
-		/* TODO START */
-		/* TODO END */
-	  return true;
+		if (!$this->checkPasswordValidity($password))
+			return false;
+		$password = hash('sha256', $password);
+		$req = $this->connection->prepare('UPDATE `users` SET `password` = :password WHERE `nickname` = :nickname;');
+		$req->execute(array("nickname" => $nickname,"password" => $password));
+		return true;
 	}
 
 
