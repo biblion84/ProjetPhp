@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eed72522-ee13-41c1-b4a1-e719565a2dea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" afterPath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Database.inc.php" afterPath="$PROJECT_DIR$/model/Database.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/templates/updateuserform.inc.php" afterPath="$PROJECT_DIR$/views/templates/updateuserform.inc.php" />
     </list>
     <ignored path="ProjetPhp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,12 +85,30 @@
     <splitter split-orientation="horizontal" split-proportion="0.5133418">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.18763797">
+                <state vertical-scroll-proportion="-6.5384617">
                   <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Database.inc.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.30022076">
+                  <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+                  <folding>
+                    <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+                    <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+                    <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+                    <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -222,9 +239,9 @@
       <list>
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/actions/AddSurveyAction.inc.php" />
-        <option value="$PROJECT_DIR$/model/Database.inc.php" />
         <option value="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
         <option value="$PROJECT_DIR$/views/templates/updateuserform.inc.php" />
+        <option value="$PROJECT_DIR$/model/Database.inc.php" />
       </list>
     </option>
   </component>
@@ -449,13 +466,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <marker date="1460912722937" expanded="true" signature="1374:1586" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="1620:2020" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="2054:2428" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="3583:3626" placeholder="SELECT nickn... users" />
-            <marker date="1460912722937" expanded="true" signature="4163:4206" placeholder="SELECT passw... users" />
-            <marker date="1460912722937" expanded="true" signature="5337:5423" placeholder="INSERT INTO `users`... " />
-            <marker date="1460912722937" expanded="true" signature="7482:7520" placeholder="SELECT * FRO... surveys" />
+            <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
           </folding>
         </state>
       </provider>
@@ -584,22 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30022076">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <marker date="1460912722937" expanded="true" signature="1374:1586" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="1620:2020" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="2054:2428" placeholder="CREATE TABLE... IF" />
-            <marker date="1460912722937" expanded="true" signature="3583:3626" placeholder="SELECT nickn... users" />
-            <marker date="1460912722937" expanded="true" signature="4163:4206" placeholder="SELECT passw... users" />
-            <marker date="1460912722937" expanded="true" signature="5337:5423" placeholder="INSERT INTO `users`... " />
-            <marker date="1460912722937" expanded="true" signature="7482:7520" placeholder="SELECT * FRO... surveys" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/View.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.0384617">
@@ -698,9 +699,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18763797">
+        <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30022076">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
+          </folding>
         </state>
       </provider>
     </entry>
