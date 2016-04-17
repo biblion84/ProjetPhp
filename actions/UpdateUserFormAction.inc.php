@@ -10,10 +10,10 @@ class UpdateUserFormAction extends Action {
 	 */
 	public function run() {
 
-		if ($this->getSessionLogin()===null) {
+		/*if ($this->getSessionLogin()===null) {
 			$this->setMessageView("Vous devez être authentifié.");
 			return;
-		}
+		}*/
 
 		$this->setView(getViewByName("UpdateUserForm"));
 	}

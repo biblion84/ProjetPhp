@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eed72522-ee13-41c1-b4a1-e719565a2dea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Database.inc.php" afterPath="$PROJECT_DIR$/model/Database.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" afterPath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php" afterPath="$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php" />
     </list>
     <ignored path="ProjetPhp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +64,78 @@
                 <file leaf-file-name="View.inc.php" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/views/View.inc.php">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="0.023066485">
-                        <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                      <state vertical-scroll-proportion="0.6540027">
+                        <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="commands.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/views/templates/commands.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-2.6153846">
+                        <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="SignUpAction.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/actions/SignUpAction.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-9.076923">
+                        <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="SignUpFormAction.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/actions/SignUpFormAction.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-0.0">
+                        <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="SignUpFormView.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/views/SignUpFormView.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-11.115385">
+                        <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="signupform.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/views/templates/signupform.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-0.0">
+                        <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="DefaultView.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/views/DefaultView.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-9.807693">
+                        <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="page.inc.php" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/views/templates/page.inc.php">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="-10.461538">
+                        <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
                         <folding />
                       </state>
                     </provider>
@@ -99,15 +170,15 @@
             <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.30022076">
-                  <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+                  <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
                   <folding>
-                    <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-                    <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-                    <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-                    <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
+                    <marker date="1460927749877" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460927749877" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460927749877" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460927749877" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+                    <marker date="1460927749877" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+                    <marker date="1460927749877" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+                    <marker date="1460927749877" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
                   </folding>
                 </state>
               </provider>
@@ -166,8 +237,8 @@
           <file leaf-file-name="UpdateUserFormAction.inc.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.6153846">
-                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                <state vertical-scroll-proportion="-11.115385">
+                  <caret line="17" column="52" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="52" />
                   <folding />
                 </state>
               </provider>
@@ -176,8 +247,8 @@
           <file leaf-file-name="UpdateUserFormView.inc.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/UpdateUserFormView.inc.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.807693">
-                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                <state vertical-scroll-proportion="-11.115385">
+                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -186,8 +257,8 @@
           <file leaf-file-name="UpdateUserAction.inc.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/actions/UpdateUserAction.inc.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.056604">
-                  <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+                <state vertical-scroll-proportion="-8.0188675">
+                  <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -200,8 +271,8 @@
           <file leaf-file-name="updateuserform.inc.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/templates/updateuserform.inc.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.17406143">
-                  <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="54" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
                   <folding />
                 </state>
               </provider>
@@ -239,8 +310,9 @@
       <list>
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/actions/AddSurveyAction.inc.php" />
-        <option value="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
         <option value="$PROJECT_DIR$/views/templates/updateuserform.inc.php" />
+        <option value="$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php" />
+        <option value="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
         <option value="$PROJECT_DIR$/model/Database.inc.php" />
       </list>
     </option>
@@ -466,30 +538,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-            <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-            <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-            <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
+            <marker date="1460927749877" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460927749877" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460927749877" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460927749877" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/SignUpFormView.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actions/SignUpAction.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -569,14 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/DefaultView.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/templates/loginform.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769">
@@ -601,22 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/View.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.0384617">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/commands.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/actions/AddSurveyAction.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
@@ -633,7 +665,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/SignUpFormAction.inc.php">
+    <entry file="file://$PROJECT_DIR$/views/SignUpFormView.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/signupform.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -641,10 +681,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/GetMySurveysAction.inc.php">
+    <entry file="file://$PROJECT_DIR$/views/DefaultView.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -657,7 +697,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/commands.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -665,10 +713,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/updateuserform.inc.php">
+    <entry file="file://$PROJECT_DIR$/actions/SignUpAction.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17406143">
-          <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+        <state vertical-scroll-proportion="-9.076923">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -681,26 +729,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actions/UpdateUserAction.inc.php">
+    <entry file="file://$PROJECT_DIR$/actions/GetMySurveysAction.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.056604">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/UpdateUserFormAction.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/templates/updateuserform.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="54" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/UpdateUserFormView.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/actions/SignUpFormAction.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/View.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.0384617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/UpdateUserAction.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0188675">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -708,15 +788,15 @@
     <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30022076">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
-            <marker date="1460926413554" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-            <marker date="1460926413554" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-            <marker date="1460926413554" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-            <marker date="1460926413554" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-            <marker date="1460926413554" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
+            <marker date="1460927749877" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460927749877" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460927749877" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460927749877" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460927749877" expanded="true" signature="7478:7516" placeholder="SELECT * FRO... surveys" />
           </folding>
         </state>
       </provider>
