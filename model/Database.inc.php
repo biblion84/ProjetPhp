@@ -248,17 +248,20 @@ class Database {
 	private function loadSurveys($arraySurveys) {
 		$surveys = array();
 
-		for($i = 0 ; count($arraySurveys) ; $i++) {
+		for($i = 0 ; $i < count($arraySurveys) ; $i++) {
 			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['owner_id']);
 
-			$sondage->setId($ligne['id']);
+			$sondage->setId($arraySurveys[$i]['id']);
 
-			$choix = explode(';', $ligne['choices']);
+			$choix = explode(';', $arraySurveys[$i]['choices']);
 			for($i = 0 ; $i < count($choix) ; $i++) {
 				$sondage->addResponse($choix[$i]);
 			}
 
-			/* TODO : les votes et pourcentages */
+			$sondage->addVotes($arraySurveys[$i]['responses']);
+			$sondage->computePercentages($votes)
+			
+
 
 			array_push($surveys, $sondage);
 		}
