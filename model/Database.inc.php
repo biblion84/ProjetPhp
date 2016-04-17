@@ -14,7 +14,7 @@ class Database {
 	public function __construct() {
 		$dbHost = "localhost";
 		$dbBd = "sondages";
-		$dbPass = "";
+		$dbPass = "root";
 		$dbLogin = "root";
 		$url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
 		//$url = 'sqlite:database.sqlite';

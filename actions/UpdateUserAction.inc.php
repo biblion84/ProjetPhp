@@ -21,8 +21,10 @@ class UpdateUserAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-		/* TODO START */
-		/* TODO END */
+		if (!$_POST['updatePassword'] === $_POST['updatePassword2'])
+		{
+			echo "<script> alert('Les mots de passes ne correspondent pas'); </script>";
+		}
 	}
 
 	private function setUpdateUserFormView($message) {

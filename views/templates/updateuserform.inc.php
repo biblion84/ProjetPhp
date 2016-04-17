@@ -13,9 +13,15 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="updatePassword">Mot de passe</label>
+			<label class="control-label" for="lastpassword">Mot de passe actuel</label>
 			<div class="controls">
-				<input type="password" name="updatePassword" placeholder="Mot de passe">
+				<input type="password" name="lastpassword" placeholder="Mot de passe actuel">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="updatePassword">Nouveau mot de passe</label>
+			<div class="controls">
+				<input type="password" name="updatePassword" placeholder="Nouveau mot de passe">
 			</div>
 		</div>
 		<div class="control-group">
