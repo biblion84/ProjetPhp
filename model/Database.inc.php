@@ -259,9 +259,7 @@ class Database {
 			}
 
 			$sondage->addVotes($arraySurveys[$i]['responses']);
-			$sondage->computePercentages($votes)
-			
-
+			$sondage->computePercentages($votes);
 
 			array_push($surveys, $sondage);
 		}
