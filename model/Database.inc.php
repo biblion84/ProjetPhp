@@ -253,8 +253,8 @@ class Database {
 
 			$sondage->setId($ligne['id']);
 
-			$choix = explode (';', $ligne['choices']);
-			for($i = 0 ; count($choix) ; $i++) {
+			$choix = explode(';', $ligne['choices']);
+			for($i = 0 ; $i < count($choix) ; $i++) {
 				$sondage->addResponse($choix[$i]);
 			}
 

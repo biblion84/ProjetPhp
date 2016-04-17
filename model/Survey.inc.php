@@ -5,12 +5,14 @@ class Survey {
 	private $owner;
 	private $question;
 	private $responses;
+	private $votes; // le nombre de votes ('16;87;51;74' par ex.)
 
 	public function __construct($owner, $question) {
 		$this->id = null;
 		$this->owner = $owner;
 		$this->question = $question;
 		$this->responses = array();
+		$this->votes = array();
 	}
 
 	public function setId($id) {
@@ -40,10 +42,26 @@ class Survey {
 	public function addResponse($response) {
 		$this->responses[] = $response;
 	}
+
+	public function addVotes($votes) {
+		$this->votes = $votes;
+	}
 	
-	public function computePercentages() {
-		/* TODO START */
-		/* TODO END */
+	public function computePercentages($votes) {
+		$choix = explode(';', $votes);
+		$total = 0;
+
+		for($i = 0 ; $i < count($choix) ; $i++) {
+			$total += $choix[$i];
+		}
+
+		$pourcentages = array();
+
+		for($i = 0 ; $i < count($choix) ; $i++) {
+			$pourcentages[$i] = round(($choix[$i] / $total)*100));
+		}
+
+		return $pourcentages;
 	}
 
 }
