@@ -71,6 +71,7 @@ class Database {
 	 	");");
 	}
 
+
 	/**
 	 * Vérifie si un pseudonyme est valide, c'est-à-dire,
 	 * s'il contient entre 3 et 15 caractères et uniquement des lettres, chiffres, tirets/underscores.
@@ -82,6 +83,7 @@ class Database {
 		if (strlen($nickname) > 3 && strlen($nickname) < 15 && preg_match("#^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-]+$#", $nickname)) return true;
 		else return false;
 	}
+
 
 	/**
 	 * Vérifie si un mot de passe est valide, c'est-à-dire,
@@ -95,6 +97,7 @@ class Database {
 		else return false;
 	}
 
+
 	/**
 	 * Vérifie la disponibilité d'un pseudonyme.
 	 *
@@ -106,9 +109,10 @@ class Database {
 		$req->execute(array($nickname));
 
 		$reponse = $req->fetch();
-		if(empty($reponse)) return true; // si le tableau est vide = le nom n'est pas pris
+		if(count($reponse) == 0) return true; // si le tableau est vide = le nom n'est pas pris
 		else return false;
 	}
+
 
 	/**
 	 * Vérifie qu'un couple (pseudonyme, mot de passe) est correct.
@@ -124,11 +128,12 @@ class Database {
 		$req->execute(array($nickname));
 		$reponse = $req->fetch();
 
-		if(empty($reponse)) return false; // = l'utilisateur n'existe pas
+		if(count($reponse) == 0) return false; // = l'utilisateur n'existe pas
 
 		if($reponse['password'] == $password) return true;
 		else return false;
 	}
+
 
 	/**
 	 * Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
@@ -147,6 +152,7 @@ class Database {
 	  return true;
 	}
 
+
 	/**
 	 * Change le mot de passe d'un utilisateur.
 	 * La fonction vérifie si le mot de passe est valide. S'il ne l'est pas,
@@ -163,6 +169,7 @@ class Database {
 	  return true;
 	}
 
+
 	/**
 	 * Sauvegarde un sondage dans la base de donnée et met à jour les indentifiants
 	 * du sondage et des réponses.
@@ -176,6 +183,7 @@ class Database {
 		return true;
 	}
 
+
 	/**
 	 * Sauvegarde une réponse dans la base de donnée et met à jour son indentifiant.
 	 *
@@ -188,6 +196,7 @@ class Database {
 		return true;
 	}
 
+
 	/**
 	 * Charge l'ensemble des sondages créés par un utilisateur.
 	 *
@@ -199,6 +208,7 @@ class Database {
 		/* TODO END */
 	}
 
+
 	/**
 	 * Charge l'ensemble des sondages dont la question contient un mot clé.
 	 *
@@ -207,14 +217,12 @@ class Database {
 	 */
 	public function loadSurveysByKeyword($keyword) {
 		$req = $connection->prepare('SELECT * FROM surveys WHERE question=?');
-		$req->execute(array('%'.$keyword.'%'));
+		$req->execute(array('%'.$keyword.'%')); // pas sûr que ça marche, à tester
+		$arraySurveys = $req->fetchAll();
 
-		while($reponse = $req->fetch()) {
-			$sondage = new Survey($reponse['owner_id'], $reponse['question']);
-			$sondage->setId($reponse['id']);
-			
-		}
-		
+		$arraySurveys = loadSurveys($arraySurveys);
+
+		return $arraySurveys;
 	}
 
 
@@ -229,6 +237,7 @@ class Database {
 		/* TODO END */
 	}
 
+
 	/**
 	 * Construit un tableau de sondages à partir d'un tableau de ligne de la table 'surveys'.
 	 * Ce tableau a été obtenu à l'aide de la méthode fetchAll() de PDO.
@@ -238,10 +247,26 @@ class Database {
 	 */
 	private function loadSurveys($arraySurveys) {
 		$surveys = array();
-		/* TODO START */
-		/* TODO END */
+
+		for($i = 0 ; count($arraySurveys) ; $i++) {
+			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['owner_id']);
+
+			$sondage->setId($ligne['id']);
+
+			$choix = explode (';', $ligne['choices']);
+			for($i = 0 ; count($choix) ; $i++) {
+				$sondage->addResponse($choix[$i]);
+			}
+
+			/* TODO : les votes et pourcentages */
+
+			array_push($surveys, $sondage);
+		}
+
 		return $surveys;
 	}
+
+
 
 	/**
 	 * Construit un tableau de réponses à partir d'un tableau de ligne de la table 'responses'.
@@ -251,6 +276,9 @@ class Database {
 	 * @param array $arraySurveys Tableau de lignes.
 	 * @return array(Response)|boolean Le tableau de réponses ou false si une erreur s'est produite.
 	 */
+
+	/* Ignorer cette fonction ? Elle peut être faite dans loadSurveys, et on n'a pas de table Responses donc elle devient inutile (Romain) */
+
 	private function loadResponses($survey, $arrayResponses) {
 		$responses = array();
 		/* TODO START */
