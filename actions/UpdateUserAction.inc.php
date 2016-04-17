@@ -21,6 +21,8 @@ class UpdateUserAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
+
+		// Voir a l'interieur des setUpdateUserFormView pour voir l'utilite du if
 		if (!$_POST['updatePassword2'] || !$_POST['updatePassword'] || !$_POST['lastpassword'])
 		{
 			$this->setUpdateUserFormView("Champ vide");

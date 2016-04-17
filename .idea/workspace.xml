@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eed72522-ee13-41c1-b4a1-e719565a2dea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" afterPath="$PROJECT_DIR$/actions/UpdateUserAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Database.inc.php" afterPath="$PROJECT_DIR$/model/Database.inc.php" />
     </list>
     <ignored path="ProjetPhp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +38,8 @@
                 <file leaf-file-name="UpdateUserAction.inc.php" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/actions/UpdateUserAction.inc.php">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="0.5212947">
-                        <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+                      <state vertical-scroll-proportion="0.4204301">
+                        <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                         <folding />
                       </state>
                     </provider>
@@ -84,33 +82,33 @@
                 <file leaf-file-name="Database.inc.php" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="0.44299674">
+                      <state vertical-scroll-proportion="0.28422153">
                         <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
                         <folding>
-                          <marker date="1460931102573" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-                          <marker date="1460931102573" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-                          <marker date="1460931102573" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-                          <marker date="1460931102573" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-                          <marker date="1460931102573" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-                          <marker date="1460931102573" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-                          <marker date="1460931102573" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
-                          <marker date="1460931102573" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
-                          <marker date="1460931102573" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
-                          <marker date="1460931102573" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
-                          <marker date="1460931102573" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
-                          <marker date="1460931102573" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
-                          <marker date="1460931102573" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
-                          <marker date="1460931102573" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
-                          <marker date="1460931102573" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
-                          <marker date="1460931102573" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
-                          <marker date="1460931102573" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
-                          <marker date="1460931102573" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
-                          <marker date="1460931102573" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
-                          <marker date="1460931102573" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
-                          <marker date="1460931102573" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
-                          <marker date="1460931102573" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
-                          <marker date="1460931102573" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
-                          <marker date="1460931102573" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
+                          <marker date="1460931788780" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+                          <marker date="1460931788780" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+                          <marker date="1460931788780" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+                          <marker date="1460931788780" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+                          <marker date="1460931788780" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+                          <marker date="1460931788780" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+                          <marker date="1460931788780" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
+                          <marker date="1460931788780" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
+                          <marker date="1460931788780" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
+                          <marker date="1460931788780" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
+                          <marker date="1460931788780" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
+                          <marker date="1460931788780" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
+                          <marker date="1460931788780" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
+                          <marker date="1460931788780" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
+                          <marker date="1460931788780" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
+                          <marker date="1460931788780" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
+                          <marker date="1460931788780" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
+                          <marker date="1460931788780" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
+                          <marker date="1460931788780" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
+                          <marker date="1460931788780" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
+                          <marker date="1460931788780" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
+                          <marker date="1460931788780" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
+                          <marker date="1460931788780" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
+                          <marker date="1460931788780" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
                         </folding>
                       </state>
                     </provider>
@@ -227,28 +225,28 @@
                 <state vertical-scroll-proportion="-5.390244">
                   <caret line="176" column="53" selection-start-line="176" selection-start-column="53" selection-end-line="176" selection-end-column="53" />
                   <folding>
-                    <marker date="1460931102573" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460931102573" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460931102573" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-                    <marker date="1460931102573" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-                    <marker date="1460931102573" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-                    <marker date="1460931102573" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-                    <marker date="1460931102573" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
-                    <marker date="1460931102573" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
-                    <marker date="1460931102573" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
-                    <marker date="1460931102573" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
-                    <marker date="1460931102573" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
-                    <marker date="1460931102573" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
-                    <marker date="1460931102573" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
-                    <marker date="1460931102573" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
-                    <marker date="1460931102573" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
-                    <marker date="1460931102573" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
-                    <marker date="1460931102573" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
-                    <marker date="1460931102573" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
-                    <marker date="1460931102573" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
-                    <marker date="1460931102573" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
-                    <marker date="1460931102573" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
-                    <marker date="1460931102573" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
+                    <marker date="1460931788780" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460931788780" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460931788780" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+                    <marker date="1460931788780" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+                    <marker date="1460931788780" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+                    <marker date="1460931788780" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+                    <marker date="1460931788780" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
+                    <marker date="1460931788780" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
+                    <marker date="1460931788780" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
+                    <marker date="1460931788780" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
+                    <marker date="1460931788780" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
+                    <marker date="1460931788780" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
+                    <marker date="1460931788780" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
+                    <marker date="1460931788780" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
+                    <marker date="1460931788780" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
+                    <marker date="1460931788780" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
+                    <marker date="1460931788780" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
+                    <marker date="1460931788780" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
+                    <marker date="1460931788780" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
+                    <marker date="1460931788780" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
+                    <marker date="1460931788780" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
+                    <marker date="1460931788780" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
                   </folding>
                 </state>
               </provider>
@@ -640,30 +638,30 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <marker date="1460931102573" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-            <marker date="1460931102573" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-            <marker date="1460931102573" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
-            <marker date="1460931102573" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
-            <marker date="1460931102573" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
-            <marker date="1460931102573" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
-            <marker date="1460931102573" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
-            <marker date="1460931102573" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
-            <marker date="1460931102573" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
-            <marker date="1460931102573" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
-            <marker date="1460931102573" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
-            <marker date="1460931102573" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460931788780" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460931788780" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
+            <marker date="1460931788780" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
+            <marker date="1460931788780" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
+            <marker date="1460931788780" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
+            <marker date="1460931788780" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
+            <marker date="1460931788780" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
+            <marker date="1460931788780" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
+            <marker date="1460931788780" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
           </folding>
         </state>
       </provider>
@@ -906,33 +904,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Database.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44299674">
+        <state vertical-scroll-proportion="0.28422153">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
-            <marker date="1460931102573" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
-            <marker date="1460931102573" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
-            <marker date="1460931102573" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
-            <marker date="1460931102573" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
-            <marker date="1460931102573" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
-            <marker date="1460931102573" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
-            <marker date="1460931102573" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
-            <marker date="1460931102573" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
-            <marker date="1460931102573" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
-            <marker date="1460931102573" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
-            <marker date="1460931102573" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
-            <marker date="1460931102573" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
-            <marker date="1460931102573" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
-            <marker date="1460931102573" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
-            <marker date="1460931102573" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="1370:1582" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="1616:2016" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="2050:2424" placeholder="CREATE TABLE... IF" />
+            <marker date="1460931788780" expanded="true" signature="3579:3622" placeholder="SELECT nickn... users" />
+            <marker date="1460931788780" expanded="true" signature="4159:4202" placeholder="SELECT passw... users" />
+            <marker date="1460931788780" expanded="true" signature="5333:5419" placeholder="INSERT INTO `users`... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6253" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6263" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6282" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6292" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6235:6305" placeholder="UPDATE `user... " />
+            <marker date="1460931788780" expanded="true" signature="6241:6250" placeholder="INSERT INTO `users`... " />
+            <marker date="1460931788780" expanded="true" signature="7372:7388" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="7391:7405" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="7412:7650" placeholder="/** * Charge... " />
+            <marker date="1460931788780" expanded="true" signature="7732:7770" placeholder="SELECT * FRO... surveys" />
+            <marker date="1460931788780" expanded="true" signature="7965:8165" placeholder="/** * Enregi... " />
+            <marker date="1460931788780" expanded="true" signature="8197:8213" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="8216:8230" placeholder="/* TODO END " />
+            <marker date="1460931788780" expanded="true" signature="8237:8556" placeholder="/** * Constr... " />
+            <marker date="1460931788780" expanded="true" signature="9122:9483" placeholder="/** * Constr... " />
+            <marker date="1460931788780" expanded="true" signature="9486:9623" placeholder="/* Ignorer c... " />
+            <marker date="1460931788780" expanded="true" signature="9711:9727" placeholder="/* TODO STAR... " />
+            <marker date="1460931788780" expanded="true" signature="9730:9744" placeholder="/* TODO END " />
           </folding>
         </state>
       </provider>
