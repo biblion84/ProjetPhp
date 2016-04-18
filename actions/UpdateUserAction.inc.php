@@ -31,9 +31,9 @@ class UpdateUserAction extends Action {
 		} elseif ($_POST['updatePassword'] !== $_POST['updatePassword2']) {
 			$this->setUpdateUserFormView("Mots de passe non identique");
 		} elseif ($this->database->updateUser($this->getSessionLogin(),$_POST['updatePassword'] )){
-			$this->setUpdateUserFormView("Changement effectue");
+			$this->setMessageView("Changement effectue"); // Retour sur la view default + affichage message
 		} else {
-			$this->setUpdateUserFormView("Veuillez réessayer");
+			$this->setUpdateUserFormView("Le mot de passe doit contenir entre 6 et 30 caractères");
 		}
 	}
 
