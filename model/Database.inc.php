@@ -80,7 +80,7 @@ class Database {
 	 * @return boolean True si le pseudonyme est valide, false sinon.
 	 */
 	private function checkNicknameValidity($nickname) {
-		if (strlen($nickname) > 3 && strlen($nickname) < 15 && preg_match("#^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-]+$#", $nickname)) return true;
+		if (strlen($nickname) >= 3 && strlen($nickname) <= 15 && preg_match("#^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-]+$#", $nickname)) return true;
 		else return false;
 	}
 
@@ -93,7 +93,7 @@ class Database {
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
-		if (strlen($password) > 6 && strlen($password) < 30) return true;
+		if (strlen($password) >= 6 && strlen($password) <= 30) return true;
 		else return false;
 	}
 
@@ -105,7 +105,7 @@ class Database {
 	 * @return boolean True si le pseudonyme est disponible, false sinon.
 	 */
 	private function checkNicknameAvailability($nickname) {
-		$req = $connection->prepare('SELECT nickname FROM users WHERE nickname=?');
+		$req = $this->connection->prepare('SELECT nickname FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
 
 		$reponse = $req->fetch();
@@ -124,7 +124,7 @@ class Database {
 	public function checkPassword($nickname, $password) {
 		$password = hash('sha256', $password);
 
-		$req = $connection->prepare('SELECT password FROM users WHERE nickname=?');
+		$req = $this->connection->prepare('SELECT password FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
 		$reponse = $req->fetch();
 
@@ -149,17 +149,17 @@ class Database {
 	public function addUser($nickname, $password) {
 	  /* TODO START */
 		if ($this->checkNicknameValidity($nickname) == false) {
-			return "Le pseudo doit contenir entre 3 et 10 lettres.";
+			return "Le pseudo doit contenir entre 3 et 15 lettres.";
 		}
 		elseif ($this->checkPasswordValidity($password) == false) {
-			return "Le mot de passe doit contenir entre 3 et 10 caractères.";
+			return "Le mot de passe doit contenir entre 6 et 30 caractères.";
 		}
 		elseif ($this->checkNicknameAvailability($nickname) == false) {
 			return "Le pseudo existe déjà.";
 		}
 		else {
 			// AJOUTER USER ICI
-			return true;
+			return "true";
 		}
 	  /* TODO END */
 
