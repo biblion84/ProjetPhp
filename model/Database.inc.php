@@ -14,7 +14,7 @@ class Database {
 	public function __construct() {
 		$dbHost = "localhost";
 		$dbBd = "sondages";
-		$dbPass = "root";
+		$dbPass = "";
 		$dbLogin = "root";
 		$url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
 		//$url = 'sqlite:database.sqlite';
@@ -191,9 +191,21 @@ class Database {
 	 * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
 	 */
 	public function saveSurvey($survey) {
-		/* TODO START */
-		/* TODO END */
-		return true;
+		$req = $this->connection->prepare('INSERT INTO `surveys` (`id`, `owner_id`, `question`, `choices`, `responses`) VALUES (NULL, :owner_id, :question, :choices, :responses);');
+        $req_owner_id = $this->connection->prepare('SELECT `id` FROM `users` WHERE `nickname` = :nickname;');
+		$nickname = $survey->getOwner();
+        $req_owner_id->execute(array("nickname" => $nickname));
+        $owner_id = $req_owner_id->fetchColumn();
+		$question = $survey->getQuestion();
+		$responses = implode(';', $survey->getResponses()); // pour les mettre a la suite separe par un ';'
+		$choices = "";
+		for ($i = 0; $i <= mb_substr_count($question, ";"); $i++)
+			$choices .= "0;";
+		$choices = rtrim($choices, ";"); // Pour obtenir 0 si 1 reponse, 0;0;0 si 3 etc
+		if ($req->execute(array("owner_id" => $owner_id, "question" => $question, "choices" => $choices, "responses" => $responses)))
+			return true;
+		return false;
+
 	}
 
 
@@ -205,6 +217,7 @@ class Database {
 	 */
 	private function saveResponse($response) {
 		/* TODO START */
+		//WHAT THE FUCK COMMENT ON SAIT A QUEL ROW AJOUTER LES REPONSES SI ON DONNE PAS L'ID DE LA SURVEY
 		/* TODO END */
 		return true;
 	}
