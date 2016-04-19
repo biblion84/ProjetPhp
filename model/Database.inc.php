@@ -93,11 +93,7 @@ class Database {
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
-<<<<<<< HEAD
-		if (strlen($password) > 3 || strlen($password) < 10) return true;
-=======
 		if (strlen($password) > 6 && strlen($password) < 30) return true;
->>>>>>> origin/master
 		else return false;
 	}
 
@@ -127,7 +123,7 @@ class Database {
 	 */
 	public function checkPassword($nickname, $password) {
 		$password = hash('sha256', $password);
-		
+
 		$req = $connection->prepare('SELECT password FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
 		$reponse = $req->fetch();

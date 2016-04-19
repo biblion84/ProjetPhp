@@ -1,6 +1,6 @@
 <?php
 class Survey {
-	
+
 	private $id;
 	private $owner;
 	private $question;
@@ -27,8 +27,8 @@ class Survey {
 	public function getOwner() {
 		return $this->owner;
 	}
-	
-	public function getQuestion() {	
+
+	public function getQuestion() {
 		return $this->question;
 	}
 
@@ -39,7 +39,7 @@ class Survey {
 	public function setResponses($responses) {
 		$this->responses = $responses;
 	}
-	
+
 	public function addResponse($response) {
 		$this->responses[] = $response;
 	}
@@ -47,7 +47,7 @@ class Survey {
 	public function addVotes($votes) {
 		$this->votes = explode(';', $votes);
 	}
-	
+
 	public function computePercentages($votes) {
 		$choix = explode(';', $votes);
 		$total = 0;
@@ -57,7 +57,7 @@ class Survey {
 		}
 
 		for($i = 0 ; $i < count($choix) ; $i++) {
-			$this->pourcentages[$i] = round(($choix[$i] / $total)*100));
+			$this->pourcentages[$i] = round(($choix[$i] / $total)*100);
 		}
 	}
 
