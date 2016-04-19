@@ -122,7 +122,6 @@ class Database {
 	 */
 	public function checkPassword($nickname, $password) {
 		$password = hash('sha256', $password);
-
 		$req = $this->connection->prepare('SELECT password FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
 		$reponse = $req->rowCount();
@@ -156,7 +155,9 @@ class Database {
 			return "Le pseudo existe déjà.";
 		}
 		else {
-			// AJOUTER USER ICI
+			$password = hash('sha256', $password);
+			$req = $this->connection->prepare('INSERT INTO `users` (`id`, `nickname`, `password`) VALUES (NULL, :nickname, :password);');
+			$req->execute(array("nickname" => $nickname,"password" => $password));
 			return "true";
 		}
 	  /* TODO END */
