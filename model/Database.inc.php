@@ -125,10 +125,13 @@ class Database {
 		$req = $this->connection->prepare('SELECT password FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
 		$reponse = $req->rowCount();
-		if(count($reponse) == 0) return false; // = l'utilisateur n'existe pas
+		if($reponse == 0) return false; // = l'utilisateur n'existe pas
+
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
 
 		if($reponse['password'] == $password) return true;
 		else return false;
+		
 	}
 
 
