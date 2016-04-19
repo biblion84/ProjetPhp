@@ -24,7 +24,7 @@ class Database {
 		$this->connectDB->exec ("CREATE DATABASE IF NOT EXISTS $dbBd;");
 
 		$this->connection = new PDO($url, $dbLogin, $dbPass);
-		if (!$this->connection) die("impossible d'ouvrir la base de données");
+		if (!$this->connection) die("Impossible d'ouvrir la base de données");
 		$this->createDataBase();
 	}
 
@@ -71,29 +71,36 @@ class Database {
 	 	");");
 	}
 
+
 	/**
 	 * Vérifie si un pseudonyme est valide, c'est-à-dire,
-	 * s'il contient entre 3 et 10 caractères et uniquement des lettres.
+	 * s'il contient entre 3 et 15 caractères et uniquement des lettres, chiffres, tirets/underscores.
 	 *
 	 * @param string $nickname Pseudonyme à vérifier.
 	 * @return boolean True si le pseudonyme est valide, false sinon.
 	 */
 	private function checkNicknameValidity($nickname) {
-		if (strlen($nickname) < 3 || strlen($nickname) > 10 || ctype_alpha($nickname) == true) return true;
+		if (strlen($nickname) > 3 && strlen($nickname) < 15 && preg_match("#^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-]+$#", $nickname)) return true;
 		else return false;
 	}
 
+
 	/**
 	 * Vérifie si un mot de passe est valide, c'est-à-dire,
-	 * s'il contient entre 3 et 10 caractères.
+	 * s'il contient entre 6 et 30 caractères.
 	 *
 	 * @param string $password Mot de passe à vérifier.
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
+<<<<<<< HEAD
 		if (strlen($password) > 3 || strlen($password) < 10) return true;
+=======
+		if (strlen($password) > 6 && strlen($password) < 30) return true;
+>>>>>>> origin/master
 		else return false;
 	}
+
 
 	/**
 	 * Vérifie la disponibilité d'un pseudonyme.
@@ -102,10 +109,14 @@ class Database {
 	 * @return boolean True si le pseudonyme est disponible, false sinon.
 	 */
 	private function checkNicknameAvailability($nickname) {
-		/* TODO START */
-		return true; // A MODIFIER PLUS TARD !
-		/* TODO END */
+		$req = $connection->prepare('SELECT nickname FROM users WHERE nickname=?');
+		$req->execute(array($nickname));
+
+		$reponse = $req->fetch();
+		if(count($reponse) == 0) return true; // si le tableau est vide = le nom n'est pas pris
+		else return false;
 	}
+
 
 	/**
 	 * Vérifie qu'un couple (pseudonyme, mot de passe) est correct.
@@ -115,10 +126,18 @@ class Database {
 	 * @return boolean True si le couple est correct, false sinon.
 	 */
 	public function checkPassword($nickname, $password) {
-		/* TODO START */
-		return true; // A MODIFIER PLUS TARD !
-		/* TODO END */
+		$password = hash('sha256', $password);
+		
+		$req = $connection->prepare('SELECT password FROM users WHERE nickname=?');
+		$req->execute(array($nickname));
+		$reponse = $req->fetch();
+
+		if(count($reponse) == 0) return false; // = l'utilisateur n'existe pas
+
+		if($reponse['password'] == $password) return true;
+		else return false;
 	}
+
 
 	/**
 	 * Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
@@ -150,6 +169,7 @@ class Database {
 
 	}
 
+
 	/**
 	 * Change le mot de passe d'un utilisateur.
 	 * La fonction vérifie si le mot de passe est valide. S'il ne l'est pas,
@@ -166,6 +186,7 @@ class Database {
 	  return true;
 	}
 
+
 	/**
 	 * Sauvegarde un sondage dans la base de donnée et met à jour les indentifiants
 	 * du sondage et des réponses.
@@ -179,6 +200,7 @@ class Database {
 		return true;
 	}
 
+
 	/**
 	 * Sauvegarde une réponse dans la base de donnée et met à jour son indentifiant.
 	 *
@@ -191,6 +213,7 @@ class Database {
 		return true;
 	}
 
+
 	/**
 	 * Charge l'ensemble des sondages créés par un utilisateur.
 	 *
@@ -202,6 +225,7 @@ class Database {
 		/* TODO END */
 	}
 
+
 	/**
 	 * Charge l'ensemble des sondages dont la question contient un mot clé.
 	 *
@@ -209,8 +233,13 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByKeyword($keyword) {
-		/* TODO START */
-		/* TODO END */
+		$req = $connection->prepare('SELECT * FROM surveys WHERE question=?');
+		$req->execute(array('%'.$keyword.'%')); // pas sûr que ça marche, à tester
+		$arraySurveys = $req->fetchAll();
+
+		$arraySurveys = loadSurveys($arraySurveys);
+
+		return $arraySurveys;
 	}
 
 
@@ -225,6 +254,7 @@ class Database {
 		/* TODO END */
 	}
 
+
 	/**
 	 * Construit un tableau de sondages à partir d'un tableau de ligne de la table 'surveys'.
 	 * Ce tableau a été obtenu à l'aide de la méthode fetchAll() de PDO.
@@ -234,10 +264,27 @@ class Database {
 	 */
 	private function loadSurveys($arraySurveys) {
 		$surveys = array();
-		/* TODO START */
-		/* TODO END */
+
+		for($i = 0 ; $i < count($arraySurveys) ; $i++) {
+			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['owner_id']);
+
+			$sondage->setId($arraySurveys[$i]['id']);
+
+			$choix = explode(';', $arraySurveys[$i]['choices']);
+			for($i = 0 ; $i < count($choix) ; $i++) {
+				$sondage->addResponse($choix[$i]);
+			}
+
+			$sondage->addVotes($arraySurveys[$i]['responses']);
+			$sondage->computePercentages($votes);
+
+			array_push($surveys, $sondage);
+		}
+
 		return $surveys;
 	}
+
+
 
 	/**
 	 * Construit un tableau de réponses à partir d'un tableau de ligne de la table 'responses'.
@@ -247,6 +294,9 @@ class Database {
 	 * @param array $arraySurveys Tableau de lignes.
 	 * @return array(Response)|boolean Le tableau de réponses ou false si une erreur s'est produite.
 	 */
+
+	/* Ignorer cette fonction ? Elle peut être faite dans loadSurveys, et on n'a pas de table Responses donc elle devient inutile (Romain) */
+
 	private function loadResponses($survey, $arrayResponses) {
 		$responses = array();
 		/* TODO START */
