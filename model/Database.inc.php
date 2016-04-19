@@ -107,9 +107,8 @@ class Database {
 	private function checkNicknameAvailability($nickname) {
 		$req = $this->connection->prepare('SELECT nickname FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
-
-		$reponse = $req->fetch();
-		if(count($reponse) == 0) return true; // si le tableau est vide = le nom n'est pas pris
+		$reponse = $req->rowCount();
+		if($reponse == 0) return true; // si le tableau est vide = le nom n'est pas pris
 		else return false;
 	}
 
@@ -126,8 +125,7 @@ class Database {
 
 		$req = $this->connection->prepare('SELECT password FROM users WHERE nickname=?');
 		$req->execute(array($nickname));
-		$reponse = $req->fetch();
-
+		$reponse = $req->rowCount();
 		if(count($reponse) == 0) return false; // = l'utilisateur n'existe pas
 
 		if($reponse['password'] == $password) return true;
