@@ -131,7 +131,7 @@ class Database {
 
 		if($reponse['password'] == $password) return true;
 		else return false;
-		
+
 	}
 
 
@@ -199,9 +199,11 @@ class Database {
 		$question = $survey->getQuestion();
 		$responses = implode(';', $survey->getResponses()); // pour les mettre a la suite separe par un ';'
 		$choices = "";
-		for ($i = 0; $i <= mb_substr_count($question, ";"); $i++)
+
+		for ($i = 0; $i <= substr_count($responses, ";"); $i++)
 			$choices .= "0;";
 		$choices = rtrim($choices, ";"); // Pour obtenir 0 si 1 reponse, 0;0;0 si 3 etc
+
 		if ($req->execute(array("owner_id" => $owner_id, "question" => $question, "choices" => $choices, "responses" => $responses)))
 			return true;
 		return false;
