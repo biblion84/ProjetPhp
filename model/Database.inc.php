@@ -80,7 +80,7 @@ class Database {
 	 * @return boolean True si le pseudonyme est valide, false sinon.
 	 */
 	private function checkNicknameValidity($nickname) {
-		if (strlen($nickname) >= 3 && strlen($nickname) <= 15 && preg_match("#^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ_-]+$#", $nickname)) return true;
+		if (strlen($nickname) >= 3 && strlen($nickname) <= 15 && preg_match("#^[a-zA-Z0-9_-]+$#", $nickname)) return true;
 		else return false;
 	}
 
@@ -134,17 +134,13 @@ class Database {
 
 	/**
 	 * Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
-	 * si le mot de passe est valide. La méthode peut retourner un des messages d'erreur qui suivent :
-	 * - "Le pseudo doit contenir entre 3 et 10 lettres.";
-	 * - "Le mot de passe doit contenir entre 3 et 10 caractères.";
-	 * - "Le pseudo existe déjà.".
+	 * si le mot de passe est valide. La méthode peut retourner un des messages d'erreur
 	 *
 	 * @param string $nickname Pseudonyme.
 	 * @param string $password Mot de passe.
 	 * @return boolean|string True si le couple a été ajouté avec succès, un message d'erreur sinon.
 	 */
 	public function addUser($nickname, $password) {
-	  /* TODO START */
 		if ($this->checkNicknameValidity($nickname) == false) {
 			return "Le pseudo doit contenir entre 3 et 15 lettres.";
 		}
@@ -160,7 +156,6 @@ class Database {
 			$req->execute(array("nickname" => $nickname,"password" => $password));
 			return "true";
 		}
-	  /* TODO END */
 
 	}
 

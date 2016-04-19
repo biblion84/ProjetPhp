@@ -21,7 +21,6 @@ class SignUpAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-		/* TODO START */
 		if ($_POST['signUpPassword'] != $_POST['signUpPassword2']) {
 			$this->setSignUpFormView("Les mots de passe ne correspondent pas");
 		}
@@ -38,7 +37,6 @@ class SignUpAction extends Action {
 			}
 
 		}
-		/* TODO END */
 	}
 
 	private function setSignUpFormView($message) {
