@@ -14,7 +14,6 @@ class LoginAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-  	/* TODO START */
 		if ($this->database->checkPassword($_POST['nickname'], $_POST['password']) != true) {
 			$this->setView(getViewByName("Default"));
 			echo "<script>alert(\"Pseudo ou mot de passe incorrect.\")</script>";
@@ -23,8 +22,6 @@ class LoginAction extends Action {
 			$this->setSessionLogin($_POST['nickname']);
 			$this->setView(getViewByName("Default"));
 		}
-
-  	/* TODO END */
 	}
 
 }
