@@ -22,6 +22,22 @@ class SignUpAction extends Action {
 	 */
 	public function run() {
 		/* TODO START */
+		if ($_POST['signUpPassword'] != $_POST['signUpPassword2']) {
+			$this->setSignUpFormView("Les mots de passe ne correspondent pas");
+		}
+		else {
+			$logonTest = $this->database->addUser($_POST['signUpLogin'], $_POST['signUpPassword']);
+			echo "<script>console.log(".$logonTest.")</script>";
+			if ($logonTest != true) {
+				$message = $logonTest;
+				$this->setSignUpFormView($message);
+			}
+			else {
+				$message = "L'utilisateur ".$_POST['signUpLogin']." a été correctement créé.";
+				$this->setMessageView($message);
+			}
+
+		}
 		/* TODO END */
 	}
 

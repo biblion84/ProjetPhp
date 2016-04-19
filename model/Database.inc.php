@@ -91,7 +91,7 @@ class Database {
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
-		if (strlen($password) < 3 || strlen($password) > 10) return true;
+		if (strlen($password) > 3 || strlen($password) < 10) return true;
 		else return false;
 	}
 
@@ -133,13 +133,13 @@ class Database {
 	 */
 	public function addUser($nickname, $password) {
 	  /* TODO START */
-		if (checkNicknameValidity($nickname) == false) {
+		if ($this->checkNicknameValidity($nickname) == false) {
 			return "Le pseudo doit contenir entre 3 et 10 lettres.";
 		}
-		elseif (checkPasswordValidity($password) == false) {
+		elseif ($this->checkPasswordValidity($password) == false) {
 			return "Le mot de passe doit contenir entre 3 et 10 caractères.";
 		}
-		elseif (checkNicknameAvailability($nickname) == false) {
+		elseif ($this->checkNicknameAvailability($nickname) == false) {
 			return "Le pseudo existe déjà.";
 		}
 		else {
