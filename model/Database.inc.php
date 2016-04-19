@@ -13,7 +13,7 @@ class Database {
 	 */
 	public function __construct() {
 		$dbHost = "localhost";
-		$dbBd = "sondages";
+		$dbBd = "sondage";
 		$dbPass = "";
 		$dbLogin = "root";
 		$url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
@@ -42,15 +42,15 @@ class Database {
 	 */
 	 private function CreateDatabase() {
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS users (".
-	 	"id INT NOT NULL AUTO_INCREMENT,".
-	 	"nickname VARCHAR(20) NOT NULL,".
+	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
+	 	"nickname VARCHAR(20) NOT NULL UNIQUE,".
 	 	"email VARCHAR(255) NOT NULL,".
 	 	"password VARCHAR(255) NOT NULL,".
 	 	"PRIMARY KEY(id)".
 	 	");");
 
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS surveys (".
-	 	"id INT NOT NULL AUTO_INCREMENT,".
+	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"owner_id INT NOT NULL,". // Jointure avec 'users'
 	 	"question VARCHAR(255) NOT NULL,".
 	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
@@ -60,7 +60,7 @@ class Database {
 	 	");");
 
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS comments (".
-	 	"id INT NOT NULL AUTO_INCREMENT,".
+	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"id_owner INT NOT NULL,". // Jointure avec 'users'
 	 	"id_survey INT NOT NULL,". // Jointure avec 'surveys'
 	 	"date DATE NOT NULL,".
