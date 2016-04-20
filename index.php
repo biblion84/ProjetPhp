@@ -1,5 +1,5 @@
 <?php
-include 'model/GT4E.php'; // pour les logs
+include 'lib/GT4E.php'; // pour les logs
 session_start();
 
 function getActionByName($name) {
