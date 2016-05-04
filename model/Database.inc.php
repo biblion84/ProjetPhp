@@ -232,8 +232,13 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByOwner($owner) {
-		/* TODO START */
-		/* TODO END */
+		$req = $connection->prepare('SELECT * FROM surveys INNER JOIN surveys ON users.id = users.nickname WHERE users.nickname=?');
+		$req->execute(array($owner));
+		$arraySurveys = $req->fetchAll();
+
+		$arraySurveys = loadSurveys($arraySurveys);
+
+		return $arraySurveys;
 	}
 
 
