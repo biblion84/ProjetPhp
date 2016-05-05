@@ -237,7 +237,7 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByOwner($owner) {
-		$req = $connection->prepare('SELECT * FROM surveys INNER JOIN surveys ON users.id = users.nickname WHERE users.nickname=?');
+		$req = $this->$connection->prepare('SELECT * FROM surveys INNER JOIN surveys ON users.id = users.nickname WHERE users.nickname=?');
 		$req->execute(array($owner));
 		$arraySurveys = $req->fetchAll();
 
@@ -254,7 +254,7 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByKeyword($keyword) {
-		$req = $connection->prepare('SELECT * FROM surveys WHERE question=?');
+		$req = $this->$connection->prepare('SELECT * FROM surveys WHERE question=?');
 		$req->execute(array('%'.$keyword.'%')); // pas sûr que ça marche, à tester
 		$arraySurveys = $req->fetchAll();
 
