@@ -25,15 +25,15 @@ class UpdateUserAction extends Action {
 		// Voir a l'interieur des setUpdateUserFormView pour voir l'utilite du if
 		if (!$_POST['updatePassword2'] || !$_POST['updatePassword'] || !$_POST['lastpassword'])
 		{
-			$this->setUpdateUserFormView("Champ vide");
+			$this->setUpdateUserFormView("Il y a des champs vides. Réessayez");
 		} elseif (!$this->database->checkPassword($this->getSessionLogin(), $_POST['lastpassword'])) {
-			$this->setUpdateUserFormView("Mauvais mot de passe");
+			$this->setUpdateUserFormView("Le mot de passe actuel n'est pas bon.");
 		} elseif ($_POST['updatePassword'] !== $_POST['updatePassword2']) {
-			$this->setUpdateUserFormView("Mots de passe non identique");
+			$this->setUpdateUserFormView("Les nouveaux mots de passe ne sont pas identiques.");
 		} elseif ($this->database->updateUser($this->getSessionLogin(),$_POST['updatePassword'] )){
-			$this->setMessageView("Changement effectue"); // Retour sur la view default + affichage message
+			$this->setMessageView("Le mot de passe a été changé !"); // Retour sur la view default + affichage message
 		} else {
-			$this->setUpdateUserFormView("Le mot de passe doit contenir entre 6 et 30 caractères");
+			$this->setUpdateUserFormView("Le nouveau mot de passe doit contenir plus de 6 caractères.");
 		}
 	}
 
