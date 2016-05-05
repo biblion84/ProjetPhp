@@ -21,7 +21,7 @@ class GetMySurveysAction extends Action {
 
 
 	private function setGetMySurveysView($surveys, $message) {
-		$this->setView(getViewByName("SurveyView"));
+		$this->setView(getViewByName("Surveys"));
 		$this->getView()->setMessage($message);
 	}
 
