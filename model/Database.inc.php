@@ -250,8 +250,8 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByKeyword($keyword) {
-		$req = $this->connection->prepare('SELECT * FROM surveys WHERE question=?');
-		$req->execute(array('%'.$keyword.'%')); // pas sûr que ça marche, à tester
+		$req = $this->connection->prepare('SELECT * FROM surveys WHERE question LIKE \'%?%\'');
+		$req->execute(array($keyword)); // pas sûr que ça marche, à tester
 		$arraySurveys = $req->fetchAll();
 
 		$arraySurveys = $this->loadSurveys($arraySurveys);
