@@ -18,8 +18,9 @@ class GetMySurveysAction extends Action {
 	}
 
 	/**
-	 * Récupère la vue GetMySurveysView et lui envoie le tableau d'objets Surveys.
+	 * Récupère la vue GetMySurveysView.
 	 *
+	 * @param Surveys : le tableau contenant tous les objets Surveys
 	 */
 
 	private function setGetMySurveysView($surveys, $message) {

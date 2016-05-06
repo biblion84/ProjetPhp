@@ -65,7 +65,7 @@ class Survey {
 
 		if($total != 0) { // pour empêcher les divisions par zéro
 			for($i = 0 ; $i < count($votes) ; $i++) {
-				$this->pourcentages[$i] = round(($votes[$i] / $total)*100);
+				$this->pourcentages[$i] = round(($votes[$i] / $total)*100, 1);
 			}
 		}
 		else
