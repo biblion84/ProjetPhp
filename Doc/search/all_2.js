@@ -11,5 +11,5 @@ var searchData=
   ['addsurveyformview',['AddSurveyFormView',['../class_add_survey_form_view.html',1,'']]],
   ['addsurveyformview_2einc_2ephp',['AddSurveyFormView.inc.php',['../_add_survey_form_view_8inc_8php.html',1,'']]],
   ['adduser',['addUser',['../class_database.html#a45f60ca4c8c6805309aa8626ab555169',1,'Database']]],
-  ['addvotes',['addVotes',['../class_survey.html#a35d8f4850a858b04305469082cb3989e',1,'Survey']]]
+  ['addvote',['addVote',['../class_survey.html#a18d814e780a5ab2da24a5a901b2d7998',1,'Survey']]]
 ];

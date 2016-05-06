@@ -1,0 +1,10 @@
+<map id="run" name="run">
+<area shape="rect" id="node2" href="$class_action.html#a4806dda8f2882191e7e385410285b4c7" title="Action\\setSessionLogin" alt="" coords="95,5,254,32"/>
+<area shape="rect" id="node3" href="$class_action.html#a9bd2ebdc8cb9836ba9b0f1d574fb1116" title="Action\\setMessageView" alt="" coords="93,157,256,184"/>
+<area shape="rect" id="node4" href="$class_action.html#ab7b32659820de59ffe097cd1848f5d36" title="Action\\setView" alt="" coords="309,56,418,83"/>
+<area shape="rect" id="node5" href="$index_8php.html#acd373d3719c9e82f9b8fac2542d8ebae" title="getViewByName" alt="" coords="304,107,423,133"/>
+<area shape="rect" id="node8" href="$class_action.html#a50677812ea3f0258f7d03bbac5265413" title="Action\\getView" alt="" coords="309,208,418,235"/>
+<area shape="rect" id="node9" href="$class_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="Action\\run" alt="" coords="323,157,404,184"/>
+<area shape="rect" id="node6" href="$_g_t4_e_8php.html#ac46558f1cd8c4fd4e54a41245271a085" title="GT4Elog" alt="" coords="471,107,543,133"/>
+<area shape="rect" id="node7" href="$_g_t4_e_8php.html#a818aa6b05c7452fbc5aa91303964cbdd" title="generateCallTrace" alt="" coords="591,107,717,133"/>
+</map>
