@@ -20,7 +20,7 @@ class SurveysView extends View {
 	}
 	
 	/**
-	 * Fixe les sondages à afficher.
+	 * Envoie les sondages à afficher.
 	 *
 	 * @param array<Survey> $surveys Sondages à afficher. 
 	 *

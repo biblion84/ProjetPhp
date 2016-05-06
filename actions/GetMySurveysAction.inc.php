@@ -17,6 +17,10 @@ class GetMySurveysAction extends Action {
 		$this->setGetMySurveysView($array_surveys, '');
 	}
 
+	/**
+	 * Récupère la vue GetMySurveysView et lui envoie le tableau d'objets Surveys.
+	 *
+	 */
 
 	private function setGetMySurveysView($surveys, $message) {
 		$this->setView(getViewByName("Surveys"));
