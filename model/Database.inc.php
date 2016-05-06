@@ -69,6 +69,14 @@ class Database {
 	  "FOREIGN KEY (id_owner) REFERENCES users(id),".
 	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 	 	");");
+
+		$this->connection->exec("CREATE TABLE IF NOT EXISTS votes (".
+		"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
+		"id_survey INT NOT NULL,". // Jointure avec 'surveys'
+		"ip_adress TEXT NOT NULL,".
+		"PRIMARY KEY(id),".
+		"FOREIGN KEY (id_survey) REFERENCES surveys(id)".
+		");");
 	}
 
 
@@ -176,7 +184,7 @@ class Database {
 	public function updateUser($nickname, $password) {
 		if (!$this->checkPasswordValidity($password))
 		return false;
-	
+
 		$password = hash('sha256', $password);
 		$req = $this->connection->prepare('UPDATE `users` SET `password` = :password WHERE `nickname` = :nickname;');
 		$req->execute(array("nickname" => $nickname,"password" => $password));
