@@ -54,7 +54,6 @@ class Database {
 	 	"owner_id INT NOT NULL,". // Jointure avec 'users'
 	 	"question VARCHAR(255) NOT NULL,".
 	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
-	 	"responses TEXT NOT NULL,".  // Stockées sous la forme '45;25;68'
 	 	"PRIMARY KEY(id),".
 	  "FOREIGN KEY (owner_id) REFERENCES users(id)".
 	 	");");
@@ -70,10 +69,11 @@ class Database {
 	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 	 	");");
 
-		$this->connection->exec("CREATE TABLE IF NOT EXISTS votes (".
+		$this->connection->exec("CREATE TABLE IF NOT EXISTS votes (". // Pour savoir si telle IP a voté pour qui.
 		"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 		"id_survey INT NOT NULL,". // Jointure avec 'surveys'
 		"ip_adress TEXT NOT NULL,".
+		"response INT NOT NULL,". // réponse 1 ou 2 ou 3 ...
 		"PRIMARY KEY(id),".
 		"FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 		");");
