@@ -15,13 +15,15 @@ class GetMySurveysAction extends Action {
 	public function run() {
 		/* TODO START */
 		$array_surveys = $this->database->loadSurveysByOwner($this->getSessionLogin());
-		$this->setGetMySurveysView($surveys, '');
+		$this->setGetMySurveysView($array_surveys, '');
+
+		print_r($array_surveys);
 		/* TODO END */
 	}
 
 
 	private function setGetMySurveysView($surveys, $message) {
-		$this->setView(getViewByName("SurveyView"));
+		$this->setView(getViewByName("Surveys"));
 		$this->getView()->setMessage($message);
 	}
 
