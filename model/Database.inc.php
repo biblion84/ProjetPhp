@@ -175,16 +175,12 @@ class Database {
 	 */
 	public function updateUser($nickname, $password) {
 		if (!$this->checkPasswordValidity($password))
-		{
-			return false;
-		}
-		else
-		{
-			$password = hash('sha256', $password);
-			$req = $this->connection->prepare('UPDATE `users` SET `password` = :password WHERE `nickname` = :nickname;');
-			$req->execute(array("nickname" => $nickname,"password" => $password));
-			return true;
-		}
+		return false;
+	
+		$password = hash('sha256', $password);
+		$req = $this->connection->prepare('UPDATE `users` SET `password` = :password WHERE `nickname` = :nickname;');
+		$req->execute(array("nickname" => $nickname,"password" => $password));
+		return true;
 	}
 
 
