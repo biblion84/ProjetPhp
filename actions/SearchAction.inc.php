@@ -15,8 +15,8 @@ class SearchAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-		/* TODO START */
-		/* TODO END */
+		$array_surveys = $this->database->loadSurveysByKeyword($this->getSessionLogin());
+		$this->setGetMySurveysView($array_surveys, '');
 	}
 
 }

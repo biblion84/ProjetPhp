@@ -14,16 +14,16 @@ class GetMySurveysAction extends Action {
 	 */
 	public function run() {
 		$array_surveys = $this->database->loadSurveysByOwner($this->getSessionLogin());
-		$this->setGetMySurveysView($array_surveys, '');
+		$this->setGetSurveysView($array_surveys, '');
 	}
 
 	/**
-	 * Récupère la vue GetMySurveysView.
+	 * Récupère la vue GetSurveysView.
 	 *
 	 * @param Surveys : le tableau contenant tous les objets Surveys
 	 */
 
-	private function setGetMySurveysView($surveys, $message) {
+	private function setGetSurveysView($surveys, $message) {
 		$this->setView(getViewByName("Surveys"));
 		$this->getView()->setSurveys($surveys);
 		$this->getView()->setMessage($message);
