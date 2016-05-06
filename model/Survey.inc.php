@@ -5,8 +5,8 @@ class Survey {
 	private $owner;
 	private $question;
 	private $responses;
-	private $votes; // le nombre de votes ('16;87;51;74' par ex.)
-	private $pourcentages; // idem mais avec ('30.01;48.58...')
+	private $votes; // tableau contenant les votes, avec un vote par ligne
+	private $pourcentages; // idem avec les pourcentages
 
 	public function __construct($owner, $question) {
 		$this->id = null;
@@ -44,20 +44,28 @@ class Survey {
 		$this->responses[] = $response;
 	}
 
-	public function addVotes($votes) {
-		$this->votes = explode(';', $votes);
+	public function addVote($vote) {
+		$this->votes[] = $vote;
 	}
 
 	public function computePercentages($votes) {
-		$choix = explode(';', $votes);
 		$total = 0;
 
-		for($i = 0 ; $i < count($choix) ; $i++) {
-			$total += $choix[$i];
+		for($i = 0 ; $i < count($votes) ; $i++) {
+			$total += $votes[$i];
 		}
 
-		for($i = 0 ; $i < count($choix) ; $i++) {
-			$this->pourcentages[$i] = round(($choix[$i] / $total)*100);
+		if($total != 0) { // pour empêcher les divisions par zéro
+			for($i = 0 ; $i < count($votes) ; $i++) {
+				$this->pourcentages[$i] = round(($votes[$i] / $total)*100);
+			}
+		}
+		else
+		{
+			for($i = 0 ; $i < count($votes) ; $i++) {
+				$this->pourcentages[$i] = 0;
+			}
+
 		}
 	}
 

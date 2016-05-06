@@ -284,25 +284,29 @@ class Database {
 	 * @return array(Survey)|boolean Le tableau de sondages ou false si une erreur s'est produite.
 	 */
 	private function loadSurveys($arraySurveys) {
-		$surveys = array();
+		$all_surveys = array();
 
 		for($i = 0 ; $i < count($arraySurveys) ; $i++) {
-			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['owner_id']);
+			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['question']);
 
 			$sondage->setId($arraySurveys[$i]['id']);
 
-			$choix = explode(';', $arraySurveys[$i]['choices']);
-			for($i = 0 ; $i < count($choix) ; $i++) {
-				$sondage->addResponse($choix[$i]);
+			$reponses = explode(';', $arraySurveys[$i]['responses']);
+			for($j = 0 ; $j < count($reponses) ; $j++) {
+				$sondage->addResponse($reponses[$j]);
 			}
 
-			$sondage->addVotes($arraySurveys[$i]['responses']);
+			$votes = explode(';', $arraySurveys[$i]['choices']);
+			for($j = 0 ; $j < count($votes) ; $j++) {
+				$sondage->addVote($votes[$j]);
+			}
+
 			$sondage->computePercentages($votes);
 
-			array_push($surveys, $sondage);
+			array_push($all_surveys, $sondage);
 		}
 
-		return $surveys;
+		return $all_surveys;
 	}
 
 

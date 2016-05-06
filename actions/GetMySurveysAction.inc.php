@@ -17,7 +17,6 @@ class GetMySurveysAction extends Action {
 		$array_surveys = $this->database->loadSurveysByOwner($this->getSessionLogin());
 		$this->setGetMySurveysView($array_surveys, '');
 
-		print_r($array_surveys);
 		/* TODO END */
 	}
 
