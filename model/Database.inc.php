@@ -54,6 +54,7 @@ class Database {
 	 	"owner_id INT NOT NULL,". // Jointure avec 'users'
 	 	"question VARCHAR(255) NOT NULL,".
 	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
+		"responses TEXT NOT NULL,".  // Stockées sous la forme '45;25;68'
 	 	"PRIMARY KEY(id),".
 	  "FOREIGN KEY (owner_id) REFERENCES users(id)".
 	 	");");
