@@ -36,6 +36,14 @@ class Survey {
 		return $this->responses;
 	}
 
+	public function getVotes() {
+		return $this->votes;
+	}
+
+	public function getPercentages() {
+		return $this->pourcentages;
+	}
+
 	public function setResponses($responses) {
 		$this->responses = $responses;
 	}
