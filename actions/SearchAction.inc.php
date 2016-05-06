@@ -15,10 +15,26 @@ class SearchAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-		$array_surveys = $this->database->loadSurveysByKeyword($this->getSessionLogin());
-		$this->setGetMySurveysView($array_surveys, '');
+		if($_POST["keyword"] !== '') {
+			$array_surveys = $this->database->loadSurveysByKeyword($_POST["keyword"]);
+			$this->setGetSurveysView($array_surveys, '');
+		}
+		else {
+			/* TODO message affichant qu'il n'y a pas de mot clé */
+		}
 	}
 
+	/**
+	 * Récupère la vue GetSurveysView.
+	 *
+	 * @param Surveys : le tableau contenant tous les objets Surveys
+	 */
+
+	private function setGetSurveysView($surveys, $message) {
+		$this->setView(getViewByName("Surveys"));
+		$this->getView()->setSurveys($surveys);
+		$this->getView()->setMessage($message);
+	}
 }
 
 ?>
