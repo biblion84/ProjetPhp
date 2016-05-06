@@ -261,6 +261,22 @@ class Database {
 
 
 	/**
+	 * Charge TOUS les sondages, pour les afficher sur la page d'accueil.
+	 *
+	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
+	 */
+	public function loadAllSurveys() {
+		$req = $this->connection->prepare('SELECT * FROM surveys');
+		$req->execute();
+		$arraySurveys = $req->fetchAll();
+
+		$arraySurveys = $this->loadSurveys($arraySurveys);
+
+		return $arraySurveys;
+	}
+
+
+	/**
 	 * Enregistre le vote d'un utilisateur pour la réponse d'identifiant $id.
 	 *
 	 * @param int $id Identifiant de la réponse.
