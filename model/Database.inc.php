@@ -46,8 +46,6 @@ class Database {
 	 	"nickname VARCHAR(20) NOT NULL UNIQUE,".
 	 	"email VARCHAR(255) NOT NULL,".
 	 	"password VARCHAR(255) NOT NULL,".
-		"ON DELETE CASCADE,".
-		"ON UPDATE CASCADE,".
 	 	"PRIMARY KEY(id)".
 	 	");");
 
@@ -58,8 +56,6 @@ class Database {
 	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
 		"responses TEXT NOT NULL,".  // Stockées sous la forme '45;25;68'
 	 	"PRIMARY KEY(id),".
-		"ON DELETE CASCADE,".
-		"ON UPDATE CASCADE,".
 	  "FOREIGN KEY (owner_id) REFERENCES users(id)".
 	 	");");
 
@@ -82,8 +78,6 @@ class Database {
 		"ip_adress TEXT NOT NULL,".
 		"response INT NOT NULL,". // réponse 1 ou 2 ou 3 ...
 		"PRIMARY KEY(id),".
-		"ON DELETE CASCADE,".
-		"ON UPDATE CASCADE,".
 		"FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 		");");
 	}
