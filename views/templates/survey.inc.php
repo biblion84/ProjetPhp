@@ -8,22 +8,26 @@
 		$tableauPctages = $survey->getPercentages();
 
 		for($i = 0 ; $i < count($survey->getResponses()) ; $i++) {
-			?>
-			<div class="fluid-row">
-				<div class="span2"><?= $tableauReponses[$i]; ?></div>
-				<div class="span2 progress progress-striped active">
-					<div class="bar" style="width: <?= $tableauPctages[$i]; ?>%"></div>
-				</div>
-				<span class="span1">(<?= $tableauPctages[$i]; ?>%)</span>
-				<form class="span1" method="post" action="<?php echo $_SERVER['PHP_SELF'].'?action=Vote';?>">
-					<input type="hidden" name="responseId" value="<?php echo $i+1 ?>">
-					<input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
-					<input type="submit" style="margin-left:5px" class="span1 btn btn-small btn-danger" value="Voter">
-				</form>
-			</div>
-		<?php
-		}
+            ?>
+            <div class="fluid-row">
+                <div class="span2"><?= $tableauReponses[$i]; ?></div>
+                <div class="span2 progress progress-striped active">
+                    <div class="bar" style="width: <?= $tableauPctages[$i]; ?>%"></div>
+                </div>
+                <span class="span1">(<?= $tableauPctages[$i]; ?>%)</span>
+                <form class="span1" method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=Vote'; ?>">
+                    <input type="hidden" name="responseId" value="<?php echo $i + 1 ?>">
+                    <input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
+                    <input type="submit" style="margin-left:5px" class="span1 btn btn-small btn-danger" value="Voter">
+                </form>
+            </div>
+            <?php
+        }
 		?>
+        <form class="span1" method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
+            <input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
+            <input type="submit" class="span6 btn btn-danger" value="Commenter">
+        </form>
 
 
 	</div>
