@@ -115,7 +115,7 @@ class Database {
 	 */
 	private function checkNicknameAvailability($nickname) {
 		$req = $this->connection->prepare('SELECT nickname FROM users WHERE nickname=?');
-		$req->execute(array($nickname));
+		$req->execute(array(htmlspecialchars($nickname)));
 		$reponse = $req->rowCount();
 		if($reponse == 0) return true; // si le tableau est vide = le nom n'est pas pris
 		else return false;
@@ -132,7 +132,7 @@ class Database {
 	public function checkPassword($nickname, $password) {
 		$password = hash('sha256', $password);
 		$req = $this->connection->prepare('SELECT password FROM users WHERE nickname=?');
-		$req->execute(array($nickname));
+		$req->execute(array(htmlspecialchars($nickname)));
 		$reponse = $req->rowCount();
 		if($reponse == 0) return false; // = l'utilisateur n'existe pas
 
@@ -165,7 +165,7 @@ class Database {
 		else {
 			$password = hash('sha256', $password);
 			$req = $this->connection->prepare('INSERT INTO `users` (`id`, `nickname`, `password`) VALUES (NULL, :nickname, :password);');
-			$req->execute(array("nickname" => $nickname,"password" => $password));
+			$req->execute(array("nickname" => htmlspecialchars($nickname),"password" => htmlspecialchars($password)));
 			return "true";
 		}
 
@@ -188,7 +188,7 @@ class Database {
 
 		$password = hash('sha256', $password);
 		$req = $this->connection->prepare('UPDATE `users` SET `password` = :password WHERE `nickname` = :nickname;');
-		$req->execute(array("nickname" => $nickname,"password" => $password));
+		$req->execute(array("nickname" => htmlspecialchars($nickname),"password" => htmlspecialchars($password)));
 		return true;
 	}
 
@@ -204,7 +204,7 @@ class Database {
 		$req = $this->connection->prepare('INSERT INTO `surveys` (`id`, `owner_id`, `question`, `choices`, `responses`) VALUES (NULL, :owner_id, :question, :choices, :responses);');
         $req_owner_id = $this->connection->prepare('SELECT `id` FROM `users` WHERE `nickname` = :nickname;');
 		$nickname = $survey->getOwner();
-        $req_owner_id->execute(array("nickname" => $nickname));
+        $req_owner_id->execute(array("nickname" => htmlspecialchars($nickname)));
         $owner_id = $req_owner_id->fetchColumn();
 		$question = $survey->getQuestion();
 		$responses = implode(';', $survey->getResponses()); // pour les mettre a la suite separe par un ';'
@@ -214,7 +214,7 @@ class Database {
 			$choices .= "0;";
 		$choices = rtrim($choices, ";"); // Pour obtenir 0 si 1 reponse, 0;0;0 si 3 etc
 
-		if ($req->execute(array("owner_id" => $owner_id, "question" => $question, "choices" => $choices, "responses" => $responses)))
+		if ($req->execute(array("owner_id" => htmlspecialchars($owner_id), "question" => htmlspecialchars($question), "choices" => htmlspecialchars($choices), "responses" => htmlspecialchars($responses))))
 			return true;
 		return false;
 
@@ -243,7 +243,7 @@ class Database {
 	 */
 	public function loadSurveysByOwner($owner) {
 		$req = $this->connection->prepare('SELECT * FROM surveys INNER JOIN users ON surveys.owner_id=users.id WHERE nickname=?');
-		$req->execute(array($owner));
+		$req->execute(array(htmlspecialchars($owner)));
 		$arraySurveys = $req->fetchAll();
 
 		$arraySurveys = $this->loadSurveys($arraySurveys);
@@ -260,7 +260,7 @@ class Database {
 	 */
 	public function loadSurveysByKeyword($keyword) {
 		$req = $this->connection->prepare('SELECT * FROM surveys WHERE question LIKE :keyword');
-		$req->execute(array(':keyword' => '%'.$keyword.'%'));
+		$req->execute(array(':keyword' => '%'.htmlspecialchars($keyword).'%'));
 		$arraySurveys = $req->fetchAll();
 
 		$arraySurveys = $this->loadSurveys($arraySurveys);
@@ -275,7 +275,7 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadAllSurveys() {
-		$req = $this->connection->prepare('SELECT * FROM surveys');
+		$req = $this->connection->prepare('SELECT * FROM surveys ORDER BY id DESC');
 		$req->execute();
 		$arraySurveys = $req->fetchAll();
 
@@ -297,12 +297,12 @@ class Database {
 		$ip_adress = $_SERVER["REMOTE_ADDR"];
 
 		$req = $this->connection->prepare('SELECT * FROM votes WHERE `ip_adress` = :ip_adress AND `id_survey` = :id_survey ;');
-		$req->execute(array("ip_adress" => $ip_adress, "id_survey" => $surveyId));
+		$req->execute(array("ip_adress" => htmlspecialchars($ip_adress), "id_survey" => htmlspecialchars($surveyId)));
 		$reponse = $req->rowCount();
 		if($reponse != 0) return false; // si le tableau est vide = l'ip a deja voté n'est pas pris
 
 		$req_vote = $this->connection->prepare('INSERT INTO `votes` (`id_survey`, `ip_adress`, `response`) VALUES (:id_survey, :ip_adress, :response);');
-		if ($req_vote->execute(array("id_survey" => $surveyId, "ip_adress" => $ip_adress, "response" => $id)) || $reponse != 0)
+		if ($req_vote->execute(array("id_survey" => htmlspecialchars($surveyId), "ip_adress" => htmlspecialchars($ip_adress), "response" => htmlspecialchars($id))) || $reponse != 0)
 			return true;
 		return false;
 
