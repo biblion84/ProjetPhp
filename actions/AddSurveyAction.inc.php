@@ -22,28 +22,29 @@ class AddSurveyAction extends Action {
 	 *
 	 * Le visiteur est finalement envoyé vers le formulaire d'ajout de sondage en cas d'erreur
 	 * ou vers une vue affichant le message "Merci, nous avons ajouté votre sondage.".
-	 * 
+	 *
 	 * @see Action::run()
 	 */
-	public function run() {
-		$reponse = [];
-		$nb_reponse = 5;// Nb de réponse à la question donnée
-		for ($i = 1; $i <= $nb_reponse; $i++) // Creation de l'array reponse contenant toute les reponses à la question
-			if ($_POST["responseSurvey$i"])
-				array_push($reponse, $_POST["responseSurvey$i"]);
-		if (!$_POST["questionSurvey"]) {
-			$this->setAddSurveyFormView("La question est obligatoire.");
-		} else if(count($reponse) < 2) {
-			$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses.");
-		} else {
-			$survey = new Survey($this->getSessionLogin(), $_POST["questionSurvey"]);
-			$survey->setResponses($reponse);
-			if ($this->database->saveSurvey($survey))
-				$this->setMessageView("Sondage ajouté");
-			else
-				($this->setAddSurveyFormView("Il y a un probleme dans votre requete"));
-		}
-	}
+	 public function run() {
+		 $reponse = [];
+		 $nb_reponse = 5;// Nb de réponse à la question donnée
+		 for ($i = 1; $i <= $nb_reponse; $i++) // Creation de l'array reponse contenant toute les reponses à la question
+		 if ($_POST["responseSurvey$i"]){
+		 	array_push($reponse, $value);
+		 }
+		 if (!$_POST["questionSurvey"]) {
+			 $this->setAddSurveyFormView("La question est obligatoire.");
+		 } else if(count($reponse) < 2 || count($reponse) > 5) { //max 5 sinon on pouvais tricher pour en mettre plus
+			 $this->setAddSurveyFormView("Il faut saisir au moins 2 réponses.");
+		 } else {
+			 $survey = new Survey($this->getSessionLogin(), $_POST["questionSurvey"]);
+			 $survey->setResponses($reponse);
+			 if ($this->database->saveSurvey($survey))
+			 $this->setMessageView("Sondage ajouté");
+			 else
+			 ($this->setAddSurveyFormView("Il y a un probleme dans votre requete"));
+		 }
+	 }
 
 
 	private function setAddSurveyFormView($message) {
