@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once("actions/Action.inc.php");
 
@@ -10,12 +10,11 @@ class LogoutAction extends Action {
 	 * de la classe Action.
 	 *
 	 * @see Action::run()
-	 */	
+	 */
 	public function run() {
 		$this->setSessionLogin(null);
 		$this->setView(getViewByName("Default"));
+		header("location:". $_SERVER['PHP_SELF']); 
 	}
 
 }
-
-

@@ -41,14 +41,20 @@
 					$comms = $survey->getComm();
 					for ($i=0; $i < count($survey->getComm()) ; $i++) {
 						echo "<blockquote><p>".$comms[$i]["texte"]."</p><footer style=\"font-size: 80%;color: #777;\">- écrit par ".$comms[$i]["nick_owner"]." le ".$comms[$i]["date"]." </footer></blockquote>";
-					}?>
-					</div>
-					</li>
+					}
+					echo "</div></li>";
+					if (isset($_SESSION["login"])) {
+					?>
 					<li class="media well">
 					<div class="media-body">
 					<label class="sr-only" for="inputHelpBlock"><strong>Ajouter un Commentaire</strong></label>
 					<input type="text" class="span6" name="commentaire">
 					<input type="submit" class="btn" value="Commenter">
+					<?php }
+					else {
+						echo "<li class=\"media well\"><div class=\"media-body\"><ul><li>Connectez-vous pour pouvoir commenter.</li></ul>";
+					}
+					 ?>
 				</form>
 			</div>
 		</li>
