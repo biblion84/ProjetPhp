@@ -329,8 +329,11 @@ class Database {
 				$sondage->addResponse($reponses[$j]);
 			}
 
-			$votes = explode(';', $arraySurveys[$i]['choices']);
-			for($j = 0 ; $j < count($votes) ; $j++) {
+			for($j = 0 ; $j < count($reponses) ; $j++) { // Permet de récupérer les votes depuis la table vote
+				$req = $this->connection->prepare('SELECT * FROM votes WHERE `id_survey` = :id_survey AND `response` = :response ;');
+				$req->execute(array("id_survey" => $sondage->getId() , "response" => $j+1 ));
+				$resp = $req->rowCount();
+				$votes[] = $resp;
 				$sondage->addVote($votes[$j]);
 			}
 
