@@ -61,10 +61,6 @@ abstract class View {
 		require("templates/searchform.inc.php");
 	}
 
-	private function displayhomeForm() {
-		require("templates/homeform.inc.php");
-	}
-
 	/**
 	 * Affiche le corps de la page. Cette méthode doit être
 	 * implémentée par les différentes vues.

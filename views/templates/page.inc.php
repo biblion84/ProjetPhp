@@ -12,7 +12,6 @@
 			<div class="container">
             <center><font color="#CECECE"> Projet PHP r&eacute;alis&eacute; par Marion Donat, Johann Natouri, Romain Ros, Lucas Dominguez et Quentin Miltgen  </font></center>
 				<?php
-				$this->displayhomeForm();
 				$this->displaySearchForm();
 				if ($this->login===null) $this->displayLoginForm();
 				else $this->displayLogoutForm();
