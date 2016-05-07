@@ -22,9 +22,17 @@
 			</div>
 			<?php
 		}
+		if (!isset($_SESSION["afficherCom"])) {
+			$_SESSION["afficherCom"] = false;
+		}
+		if ($_SESSION["afficherCom"] == false) {
+			?><a href="<?php echo $_SERVER['PHP_SELF'].'?action=AfficherCom';?>">Afficher les commentaire</a><?php
+			echo "</div></li>";
+		}
 
-		?>
-	</div></li>
+		else { ?>
+			</div></li>
+			<a href="<?php echo $_SERVER['PHP_SELF'].'?action=AfficherCom';?>">Cacher les commentaire</a>
 		<li class="media well">
 			<div class="media-body">
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
@@ -45,3 +53,4 @@
 			</div>
 		</li>
 		<hr>
+		<?php } ?>

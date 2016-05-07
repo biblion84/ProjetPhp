@@ -31,6 +31,7 @@ function getAction() {
 			'GetMySurveys',
 			'Search',
 			'Vote',
+			'AfficherCom',
 			'AddComment');
 
 	if (!in_array($action, $actions)) $action = 'Default';
