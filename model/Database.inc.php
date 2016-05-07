@@ -292,8 +292,22 @@ class Database {
 	 * @return boolean True si le vote a été enregistré, false sinon.
 	 */
 	public function vote($id) {
-		/* TODO START */
-		/* TODO END */
+
+		$req = $this->connection->prepare('INSERT INTO `votes` (`id_survey`, `ip_adress`, `response`) VALUES (:id_survey, :ip_adress, :responses);');
+				$req_owner_id = $this->connection->prepare('SELECT `id` FROM `users` WHERE `id` = :id;');
+		$id = $survey->getId();
+				$req_id->execute(array("id" => $id));
+				$survey_id = $req_id->fetchColumn();
+		$question = $survey->getQuestion();
+		$ip_adress = $_SERVER["REMOTE_ADDR"];
+		
+		$response = "";
+		//TODO : ajouter response en fonction de ce qui est cliqué
+
+		if ($req->execute(array("id_survey" => $survey_id, "ip_adress" => $ip_adress, "response" => $response)))
+			return true;
+		return false;
+
 	}
 
 
