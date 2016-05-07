@@ -1,1 +1,1 @@
-<a class="btn" href="/ProjetPhp/index.php">Accueuil</a>
+<a class="btn" href="<?php echo $_SERVER['PHP_SELF'].'#' ?>">Accueil</a>
