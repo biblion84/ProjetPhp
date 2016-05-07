@@ -32,7 +32,8 @@ function getAction() {
 			'AddSurvey',
 			'GetMySurveys',
 			'Search',
-			'Vote');
+			'Vote',
+			'AddComment');
 
 	if (!in_array($action, $actions)) $action = 'Default';
 	return getActionByName($action);

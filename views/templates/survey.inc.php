@@ -3,7 +3,7 @@
 	<div class="media-body">
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
 		<br>
-	  <?php
+		<?php
 		$tableauReponses = $survey->getResponses();
 		$tableauPctages = $survey->getPercentages();
 
@@ -21,12 +21,23 @@
 					<input type="submit" style="margin-left:5px" class="span1 btn btn-small btn-danger" value="Voter">
 				</form>
 			</div>
-		<?php
+			<?php
 		}
-		echo "</div></li><ul>";
-		$comms = $survey->getComm();
-		for ($i=0; $i < count($survey->getComm()) ; $i++) {
- 			echo "<li>".$comms[$i]["texte"]."</li><p>".$comms[$i]["nick_owner"]."</p>";
-		}
-		echo "</ul>";
+
 		?>
+		<div>
+			<form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
+				<input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
+				<ul>
+					<?php
+					$comms = $survey->getComm();
+					for ($i=0; $i < count($survey->getComm()) ; $i++) {
+						echo "<li>".$comms[$i]["texte"]."</li><p>".$comms[$i]["nick_owner"]."</p>";
+					}
+					?>
+				</ul>
+				<input type="text" class="span6" name="commentaire">
+				<input type="submit" class="span6 btn btn-danger" value="Commenter">
+			</form>
+		</div>
+		</div></li>
