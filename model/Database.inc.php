@@ -271,7 +271,7 @@ class Database {
 
 	/**
 	 * Charge TOUS les sondages, pour les afficher sur la page d'accueil.
-	 *
+	 * Tri du plus récent au plus ancien.
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadAllSurveys() {
