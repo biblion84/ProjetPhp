@@ -4,7 +4,7 @@ require_once("model/Survey.inc.php");
 require_once("model/Response.inc.php");
 require_once("actions/Action.inc.php");
 
-class AddSurveyAction extends Action {
+class AddCommentAction extends Action {
 
     /**
      * Ajoute un commentaire appartenant à un sondahe
@@ -18,14 +18,13 @@ class AddSurveyAction extends Action {
      * @param $id est l'id de la survey a laquelle appartient le commentaire
      * @see Action::run()
      */
-    public function run($id) {
+    public function run() {
+        if (!isset($_POST["surveyId"]))
+            return false;
+        $id = $_POST["surveyId"];
+        var_dump($id);
     }
 
-
-    private function setAddSurveyFormView($message) {
-        $this->setView(getViewByName("AddSurveyForm"));
-        $this->getView()->setMessage($message, "alert-error");
-    }
 
 }
 
