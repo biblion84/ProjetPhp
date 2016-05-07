@@ -292,8 +292,19 @@ class Database {
 	 * @return boolean True si le vote a été enregistré, false sinon.
 	 */
 	public function vote($id) {
-		/* TODO START */
-		/* TODO END */
+        if (isset($_POST["responseId"])) {
+            $num = ($_POST["responseId"]) - 1;
+            $req = $this->connection->prepare('SELECT choices FROM surveys WHERE `id` = :id;');
+            $req->execute(array("id" => $id));
+            $arraySurveys = $req->fetch();
+            var_dump($arraySurveys);
+            $arraySurveys = explode(";", $arraySurveys[0]);
+            var_dump($arraySurveys);
+            $arraySurveys[$num] += 1;
+            $arraySurveys = implode(";", $arraySurveys);
+            $req = $this->connection->prepare('UPDATE `surveys` SET `choices` = :arraySurveys WHERE `id` = :id');
+            $req->execute(array("arraySurveys" => $arraySurveys, "id" => $id));
+        }
 	}
 
 
