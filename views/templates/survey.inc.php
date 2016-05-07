@@ -1,4 +1,4 @@
-
+<br />
 <li class="media well">
 	<div class="media-body">
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
@@ -23,8 +23,10 @@
 			</div>
 		<?php
 		}
+		echo "</div></li><ul>";
+		$comms = $survey->getComm();
+		for ($i=0; $i < count($survey->getComm()) ; $i++) {
+ 			echo "<li>".$comms[$i]["texte"]."</li><p>".$comms[$i]["nick_owner"]."</p>";
+		}
+		echo "</ul>";
 		?>
-
-
-	</div>
-</li>

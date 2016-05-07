@@ -62,11 +62,13 @@ class Database {
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS comments (".
 	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"id_owner INT NOT NULL,". // Jointure avec 'users'
+		"nick_owner VARCHAR(20) NOT NULL,". // jointure avec 'users'
 	 	"id_survey INT NOT NULL,". // Jointure avec 'surveys'
 	 	"date DATE NOT NULL,".
 	 	"texte TEXT NOT NULL,".
 	 	"PRIMARY KEY(id),".
 	  "FOREIGN KEY (id_owner) REFERENCES users(id),".
+		"FOREIGN KEY (nick_owner) REFERENCES users(nickname),".
 	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 	 	");");
 
@@ -141,6 +143,19 @@ class Database {
 		if($reponse['password'] == $password) return true;
 		else return false;
 
+	}
+
+	/**
+	 * Récupère un Nickname depuis un ID d'user.
+	 *
+	 * @param string $user_id ID d'user.
+	 * @return string retourne le nickname.
+	 */
+	public function getUserFromId($user_id) {
+		$req = $this->connection->prepare('SELECT nickname FROM users WHERE id=?');
+		$req->execute(array(htmlspecialchars($user_id)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		return $reponse;
 	}
 
 
@@ -251,6 +266,18 @@ class Database {
 		return $arraySurveys;
 	}
 
+	/**
+	 * Charge l'ensemble des commantaires d'un sondage.
+	 *
+	 * @param string $survey id du sondage.
+	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
+	 */
+	public function loadCommBySurvey($survey) {
+		$req = $this->connection->prepare('SELECT * FROM comments WHERE id_survey = ?');
+		$req->execute(array(htmlspecialchars($survey)));
+		$arraySurveys = $req->fetchAll();
+		return $arraySurveys;
+	}
 
 	/**
 	 * Charge l'ensemble des sondages dont la question contient un mot clé.
@@ -323,6 +350,10 @@ class Database {
 			$votes = "";
 			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['question']);
 			$sondage->setId($arraySurveys[$i]['id']);
+
+			$commantaires = $this->loadCommBySurvey($arraySurveys[$i]['id']);
+			$sondage->setComm($commantaires);
+
 			$reponses = explode(';', $arraySurveys[$i]['responses']);
 			for($j = 0 ; $j < count($reponses) ; $j++) {
 				$sondage->addResponse($reponses[$j]);
