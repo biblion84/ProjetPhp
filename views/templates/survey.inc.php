@@ -26,6 +26,8 @@
 		?>
         <form class="span1" method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
             <input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
+            <?php //INSERER ICI LA BOUCLE FOR QUI VA AFFICHER LES COMMENTAIRES ?>
+            <input type="text" class="span6" name="commentaire">
             <input type="submit" class="span6 btn btn-danger" value="Commenter">
         </form>
 
