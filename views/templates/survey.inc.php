@@ -25,19 +25,20 @@
 		}
 
 		?>
-		<div>
-			<form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
-				<input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
-				<ul>
+	</div></li>
+		<li class="media well">
+			<div class="media-body">
+				<form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
+					<input type="hidden" name="surveyId" value="<?php echo $survey->getId() ?>">
 					<?php
 					$comms = $survey->getComm();
 					for ($i=0; $i < count($survey->getComm()) ; $i++) {
-						echo "<li>".$comms[$i]["texte"]."</li><p>".$comms[$i]["nick_owner"]."</p>";
+						echo "<blockquote><p>".$comms[$i]["texte"]."</p><footer style=\"font-size: 80%;color: #777;\">- écrit par ".$comms[$i]["nick_owner"]." le ".$comms[$i]["date"]." </footer></blockquote>";
 					}
 					?>
-				</ul>
-				<input type="text" class="span6" name="commentaire">
-				<input type="submit" class="span6 btn btn-danger" value="Commenter">
-			</form>
-		</div>
-		</div></li>
+					<input type="text" class="span6" name="commentaire">
+					<input type="submit" class="span6 btn btn-danger" value="Commenter">
+				</form>
+			</div>
+		</li>
+		<hr>
