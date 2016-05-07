@@ -296,8 +296,8 @@ class Database {
 
 		$ip_adress = $_SERVER["REMOTE_ADDR"];
 
-		$req = $this->connection->prepare('SELECT * FROM votes WHERE `ip_adress` = :ip_adress;');
-		$req->execute(array("ip_adress" => $ip_adress));
+		$req = $this->connection->prepare('SELECT * FROM votes WHERE `ip_adress` = :ip_adress AND `id_survey` = :id_survey ;');
+		$req->execute(array("ip_adress" => $ip_adress, "id_survey" => $surveyId));
 		$reponse = $req->rowCount();
 		if($reponse != 0) return false; // si le tableau est vide = l'ip a deja voté n'est pas pris
 
@@ -320,18 +320,16 @@ class Database {
 		$all_surveys = array();
 
 		for($i = 0 ; $i < count($arraySurveys) ; $i++) {
+			$votes = "";
 			$sondage = new Survey($arraySurveys[$i]['owner_id'], $arraySurveys[$i]['question']);
-
 			$sondage->setId($arraySurveys[$i]['id']);
-
 			$reponses = explode(';', $arraySurveys[$i]['responses']);
 			for($j = 0 ; $j < count($reponses) ; $j++) {
 				$sondage->addResponse($reponses[$j]);
 			}
-
 			for($j = 0 ; $j < count($reponses) ; $j++) { // Permet de récupérer les votes depuis la table vote
 				$req = $this->connection->prepare('SELECT * FROM votes WHERE `id_survey` = :id_survey AND `response` = :response ;');
-				$req->execute(array("id_survey" => $sondage->getId() , "response" => $j+1 ));
+				$req->execute(array("id_survey" => $arraySurveys[$i]['id'] , "response" => $j+1 ));
 				$resp = $req->rowCount();
 				$votes[] = $resp;
 				$sondage->addVote($votes[$j]);
