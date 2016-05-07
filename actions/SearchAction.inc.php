@@ -20,7 +20,7 @@ class SearchAction extends Action {
 			$this->setGetSurveysView($array_surveys, '');
 		}
 		else {
-			/* TODO message affichant qu'il n'y a pas de mot clé */
+			$this->setMessageView("Veuillez entrer un terme à rechercher");
 		}
 	}
 

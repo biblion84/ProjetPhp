@@ -13,6 +13,7 @@ class SurveysView extends View {
 	public function displayBody() {
 		if (count($this->surveys)===0) {
 			echo '<div class="container"><br><br><br><br><div style="text-align:center" class="alert">Aucun sondage ne correspond à votre demande.</div></div>';
+			//$this->setMessage("Aucun sondage ne correspond à votre demande.", "alert");
 			return;
 		}
 		
