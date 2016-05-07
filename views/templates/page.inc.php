@@ -11,10 +11,10 @@
 		<div class="navbar-inner">
 			<div class="container">
             <center><font color="#CECECE"> Projet PHP r&eacute;alis&eacute; par Marion Donat, Johann Natouri, Romain Ros, Lucas Dominguez et Quentin Miltgen  </font></center>
-				<?php $this->displaySearchForm(); ?>
 				<?php
-					if ($this->login===null) $this->displayLoginForm();
-					else $this->displayLogoutForm();
+				$this->displaySearchForm();
+				if ($this->login===null) $this->displayLoginForm();
+				else $this->displayLogoutForm();
 				?>
 			</div>
 		</div>
