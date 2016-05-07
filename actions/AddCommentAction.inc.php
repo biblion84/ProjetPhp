@@ -18,10 +18,16 @@ class AddCommentAction extends Action {
      * @see Action::run()
      */
     public function run() {
-        if (!isset($_POST["surveyId"]) && !isset($_POST["commentaire"]) && !isset($_SESSION["login"]))
+        if (!isset($_POST["surveyId"]) || !isset($_POST["commentaire"]) || !isset($_SESSION["login"]))
+        {
+            $this->setMessageView("Erreur, êtes-vous connecté ?");
             return false;
-        $req = $this->database->addComm($_POST["commentaire"], $_POST["surveyId"], $_SESSION["login"]);
-        $this->setMessageView("Merci, nous avons ajouté votre commentaire.");
+        }
+        else {
+            $req = $this->database->addComm($_POST["commentaire"], $_POST["surveyId"], $_SESSION["login"]);
+            $this->setMessageView("Merci, nous avons ajoute votre commentaire.");
+        }
+
     }
 
 

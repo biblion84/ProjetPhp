@@ -8,8 +8,11 @@ class MessageView extends View {
 	 *
 	 * @see View::displayBody()
 	 */
-	public function displayBody() { 
-		echo '<div class="container"><br>br><br><br><div style="text-align:center" class="alert '.$this->style.'">'.$this->message.'</div></div>';
+	public function displayBody() {
+		echo '<div class="container"><br><br><br><br><div style="text-align:center" class="alert '.$this->style.'">'.$this->message.'</div></div>';
+		if (isset($_SERVER['HTTP_REFERER'])) {
+		echo "<a class=\"btn\" style=\"width: 20%; margin-left: 40%;\" href=\"".$_SERVER['HTTP_REFERER']."\">Retour</a>";
+		}
 	}
 
 }
