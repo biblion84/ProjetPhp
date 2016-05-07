@@ -1,4 +1,3 @@
-<br />
 <li class="media well">
 	<div class="media-body">
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
@@ -37,7 +36,7 @@
 					}
 					?>
 					<input type="text" class="span6" name="commentaire">
-					<input type="submit" class="span6 btn btn-danger" value="Commenter">
+					<input type="submit" class="btn" value="Commenter">
 				</form>
 			</div>
 		</li>
