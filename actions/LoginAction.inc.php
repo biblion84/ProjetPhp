@@ -16,12 +16,12 @@ class LoginAction extends Action {
 	public function run() {
 		if ($this->database->checkPassword($_POST['nickname'], $_POST['password']) != true) {
 			$this->setView(getViewByName("Default"));
-			echo "<script>alert(\"Pseudo ou mot de passe incorrect.\")</script>";
+			$this->setMessageView("Pseudo ou mot de passe incorrect.");
 		}
 		else {
 			$this->setSessionLogin($_POST['nickname']);
 			$this->setView(getViewByName("Default"));
-			header("location:". $_SERVER['PHP_SELF']); 
+			header("location:". $_SERVER['PHP_SELF']);
 		}
 	}
 
