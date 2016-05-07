@@ -7,6 +7,7 @@ class Survey {
 	private $responses;
 	private $votes; // tableau contenant les votes, avec un vote par ligne
 	private $pourcentages; // idem avec les pourcentages
+	private $comm; // Commantaires
 
 	public function __construct($owner, $question) {
 		$this->id = null;
@@ -14,6 +15,15 @@ class Survey {
 		$this->question = $question;
 		$this->responses = array();
 		$this->votes = array();
+		$this->comm = array();
+	}
+
+	public function setComm($comm) {
+		$this->comm = $comm;
+	}
+
+	public function getComm() {
+		return $this->comm;
 	}
 
 	public function setId($id) {
