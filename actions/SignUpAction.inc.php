@@ -26,7 +26,6 @@ class SignUpAction extends Action {
 		}
 		else {
 			$logonTest = $this->database->addUser($_POST['signUpLogin'], $_POST['signUpPassword']);
-			echo "<script>console.log(".$logonTest.")</script>";
 			if ($logonTest != "true") {
 				$message = $logonTest;
 				$this->setSignUpFormView($message);

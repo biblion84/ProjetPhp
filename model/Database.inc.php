@@ -61,13 +61,11 @@ class Database {
 
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS comments (".
 	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
-	 	"id_owner INT NOT NULL,". // Jointure avec 'users'
 		"nick_owner VARCHAR(20) NOT NULL,". // jointure avec 'users'
 	 	"id_survey INT NOT NULL,". // Jointure avec 'surveys'
 	 	"date DATE NOT NULL,".
 	 	"texte TEXT NOT NULL,".
 	 	"PRIMARY KEY(id),".
-	  "FOREIGN KEY (id_owner) REFERENCES users(id),".
 		"FOREIGN KEY (nick_owner) REFERENCES users(nickname),".
 	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
 	 	");");
@@ -186,6 +184,12 @@ class Database {
 
 	}
 
+	public function addComm($comm, $survId, $login) {
+			$req = $this->connection->prepare('INSERT INTO `comments` (`nick_owner`, `id_survey`, `date`, `texte`) VALUES ( :nick_owner, :id_survey, :datenow, :texte );');
+			$req->execute(array("nick_owner" => htmlspecialchars($login),"id_survey" => htmlspecialchars($survId), "datenow" => date('Y-m-d'), "texte" => htmlspecialchars($comm)));
+			GT4Elog();
+			return $req;
+	}
 
 	/**
 	 * Change le mot de passe d'un utilisateur.

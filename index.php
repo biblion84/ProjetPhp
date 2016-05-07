@@ -4,14 +4,12 @@ session_start();
 
 function getActionByName($name) {
 	$name .= 'Action';
-	GT4Elog($name);
 	require("actions/$name.inc.php");
 	return new $name();
 }
 
 function getViewByName($name) {
 	$name .= 'View';
-	GT4Elog($name);
 	require("views/$name.inc.php");
 	return new $name();
 }

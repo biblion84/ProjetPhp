@@ -15,14 +15,13 @@ class AddCommentAction extends Action {
      *
      * Le visiteur est finalement envoyé vers le formulaire d'ajout de commentaire en cas d'erreur
      * ou vers une vue affichant le message "Merci, nous avons ajouté votre commentaire.".
-     * @param $id est l'id de la survey a laquelle appartient le commentaire
      * @see Action::run()
      */
     public function run() {
-        if (!isset($_POST["surveyId"]))
+        if (!isset($_POST["surveyId"]) && !isset($_POST["commentaire"]) && !isset($_SESSION["login"]))
             return false;
-        $id = $_POST["surveyId"];
-        var_dump($id);
+        $req = $this->database->addComm($_POST["commentaire"], $_POST["surveyId"], $_SESSION["login"]);
+        $this->setMessageView("Merci, nous avons ajouté votre commentaire.");
     }
 
 
