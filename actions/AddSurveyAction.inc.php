@@ -30,7 +30,7 @@ class AddSurveyAction extends Action {
 		 $nb_reponse = 5;// Nb de réponse à la question donnée
 		 for ($i = 1; $i <= $nb_reponse; $i++) // Creation de l'array reponse contenant toute les reponses à la question
 		 if ($_POST["responseSurvey$i"]){
-			$value = preg_replace("/[^a-zA-Z0-9_- ]/", "", $_POST["responseSurvey$i"]); //remplace les carracteres spéciaux dans les réponses, ce qui fausserait les réponses (avec htmlspecialchar et les -)
+			$value = preg_replace("/[^a-zA-Z0-9 ]/", "", $_POST["responseSurvey$i"]); //remplace les carracteres spéciaux dans les réponses, ce qui fausserait les réponses (avec htmlspecialchar et les -)
 		 	array_push($reponse, $value);
 		 }
 		 if (!$_POST["questionSurvey"]) {

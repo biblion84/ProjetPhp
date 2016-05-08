@@ -219,7 +219,7 @@ class Database {
 	 * @param Survey $survey Sondage à sauvegarder.
 	 * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
 	 */
-	public function saveSurvey($survey) { // Response en SQL A été abandonné
+	public function saveSurvey($survey) {
 		$req = $this->connection->prepare('INSERT INTO `surveys` (`id`, `owner_id`, `question`, `choices`, `responses`) VALUES (NULL, :owner_id, :question, :choices, :responses);');
         $req_owner_id = $this->connection->prepare('SELECT `id` FROM `users` WHERE `nickname` = :nickname;');
 		$nickname = $survey->getOwner();
