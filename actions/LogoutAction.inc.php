@@ -13,6 +13,7 @@ class LogoutAction extends Action {
 	 */
 	public function run() {
 		$this->setSessionLogin(null);
+		$this->setSessionId(null);
 		$this->setView(getViewByName("Default"));
 		header("location:". $_SERVER['PHP_SELF']); 
 	}
