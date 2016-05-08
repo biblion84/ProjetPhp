@@ -3,7 +3,7 @@
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
 		<br>
 		<?php
-        if ($_SESSION['id']['id'] == $survey->getOwner())
+        if (isset($_SESSION['id']['id']) && ($_SESSION['id']['id'] == $survey->getOwner()))
         { ?>
             <a href="#"><i class="icon-trash"></i> Delete</a>
         <?php
