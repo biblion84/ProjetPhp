@@ -50,8 +50,7 @@ class Database {
 	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"owner_id INT NOT NULL,". // Jointure avec 'users'
 	 	"question VARCHAR(255) NOT NULL,".
-	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'choix1;choix2;choix3'
-		"responses TEXT NOT NULL,".  // TODO: A ENLEVER, MAINTENANT INUTILE - Stockées sous la forme '45;25;68'
+		"responses TEXT NOT NULL,".  // Stockées sous la forme 'choix1;choix2;choix3'
 	 	"PRIMARY KEY(id),".
 	  "FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE". // Permet de supprimer un soindage si un user est supprimé
 	 	");");
@@ -257,20 +256,15 @@ class Database {
 	 * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
 	 */
 	public function saveSurvey($survey) {
-		$req = $this->connection->prepare('INSERT INTO `surveys` (`id`, `owner_id`, `question`, `choices`, `responses`) VALUES (NULL, :owner_id, :question, :choices, :responses);');
+		$req = $this->connection->prepare('INSERT INTO `surveys` (`id`, `owner_id`, `question`, `responses`) VALUES (NULL, :owner_id, :question, :responses);');
         $req_owner_id = $this->connection->prepare('SELECT `id` FROM `users` WHERE `nickname` = :nickname;');
 		$nickname = $survey->getOwner();
         $req_owner_id->execute(array("nickname" => htmlspecialchars($nickname)));
         $owner_id = $req_owner_id->fetchColumn();
 		$question = $survey->getQuestion();
 		$responses = implode(';', $survey->getResponses()); // pour les mettre a la suite separe par un ';'
-		$choices = "";
 
-		for ($i = 0; $i <= substr_count($responses, ";"); $i++)
-			$choices .= "0;";
-		$choices = rtrim($choices, ";"); // Pour obtenir 0 si 1 reponse, 0;0;0 si 3 etc
-
-		if ($req->execute(array("owner_id" => htmlspecialchars($owner_id), "question" => htmlspecialchars($question), "choices" => htmlspecialchars($choices), "responses" => htmlspecialchars($responses))))
+		if ($req->execute(array("owner_id" => htmlspecialchars($owner_id), "question" => htmlspecialchars($question), "responses" => htmlspecialchars($responses))))
 			return true;
 		return false;
 

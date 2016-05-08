@@ -43,6 +43,6 @@ function getAction() {
 $action = getAction();
 $action->run();
 $view = $action->getView();
-$action->getView()->setLogin($action->getSessionLogin()); // Il n'y a pas de problème ici, le probleme viens du fait qu'il manque du code todo
+$action->getView()->setLogin($action->getSessionLogin());
 $view->run();
 ?>
