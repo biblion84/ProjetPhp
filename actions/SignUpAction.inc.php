@@ -33,7 +33,7 @@ class SignUpAction extends Action {
 			else {
 				$message = "L'utilisateur ".$_POST['signUpLogin']." a été correctement créé.";
 				$this->setSessionLogin($_POST['signUpLogin']);
-				$this->setSessionId($this->database->getIdFromUser($this->getSessionLogin()));
+				$this->setSessionId($this->database->getIdFromUser($_SESSION['login']));
 				$this->setMessageView($message);
 			}
 

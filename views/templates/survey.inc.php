@@ -1,16 +1,19 @@
 <li class="media well">
 	<div class="media-body">
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
-		<br>
+
 		<?php
         if (isset($_SESSION['id']['id']) && ($_SESSION['id']['id'] == $survey->getOwner()))
         { ?>
-            <a href="#"><i class="icon-trash"></i> Delete</a>
+					<div style="text-align: right; display: block;">
+						<a href="#"><i class="icon-pencil"></i> </a>
+						<a href="#"><i class="icon-trash"></i> </a>
+					</div>
         <?php
         }
 		$tableauReponses = $survey->getResponses();
 		$tableauPctages = $survey->getPercentages();
-
+		echo "<br>";
 		for($i = 0 ; $i < count($survey->getResponses()) ; $i++) {
 			?>
 			<div class="fluid-row">

@@ -25,7 +25,7 @@ abstract class Action {
 
 	/**
 	 * Retourne la vue qui doit être affichée par le contrôleur.
-	 * 
+	 *
 	 * @return View Vue qui doit être affichée par le contrôleur.
 	 */
 	public function getView() {
@@ -53,13 +53,13 @@ abstract class Action {
 		$_SESSION['login'] = $login;
 	}
 
-	protected function setSessionId($Sid) {
-		$_SESSION['id'] = $Sid;
+	protected function setSessionId($sid) {
+		$_SESSION['id'] = $sid;
 	}
 
 	/**
 	 * Fixe la vue de façon à afficher un message à l'utilisateur.
-	 * 
+	 *
 	 * @param string $message Message à afficher à l'utilisateur.
 	 * @param string $style style de l'affichage.
 	 */

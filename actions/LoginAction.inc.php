@@ -21,7 +21,7 @@ class LoginAction extends Action {
 		else {
 			$this->setSessionLogin($_POST['nickname']);
 			$this->setView(getViewByName("Default"));
-			$this->setSessionId($this->database->getIdFromUser($this->getSessionLogin()));
+			$this->setSessionId($this->database->getIdFromUser($_SESSION['login']));
 			header("location:". $_SERVER['PHP_SELF']);
 		}
 	}
