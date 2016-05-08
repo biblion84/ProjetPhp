@@ -56,7 +56,7 @@ class Database {
 	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
 		"responses TEXT NOT NULL,".  // Stockées sous la forme '45;25;68'
 	 	"PRIMARY KEY(id),".
-	  "FOREIGN KEY (owner_id) REFERENCES users(id)".
+	  "FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE".
 	 	");");
 
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS comments (".
@@ -66,8 +66,8 @@ class Database {
 	 	"date DATE NOT NULL,".
 	 	"texte TEXT NOT NULL,".
 	 	"PRIMARY KEY(id),".
-		"FOREIGN KEY (nick_owner) REFERENCES users(nickname),".
-	  "FOREIGN KEY (id_survey) REFERENCES surveys(id)".
+		"FOREIGN KEY (nick_owner) REFERENCES users(nickname) ON UPDATE CASCADE,".
+	  "FOREIGN KEY (id_survey) REFERENCES surveys(id) ON DELETE CASCADE".
 	 	");");
 
 		$this->connection->exec("CREATE TABLE IF NOT EXISTS votes (". // Pour savoir si telle IP a voté pour qui.
@@ -76,7 +76,7 @@ class Database {
 		"ip_adress TEXT NOT NULL,".
 		"response INT NOT NULL,". // réponse 1 ou 2 ou 3 ...
 		"PRIMARY KEY(id),".
-		"FOREIGN KEY (id_survey) REFERENCES surveys(id)".
+		"FOREIGN KEY (id_survey) REFERENCES surveys(id) ON DELETE CASCADE".
 		");");
 	}
 
