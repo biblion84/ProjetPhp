@@ -16,8 +16,8 @@
 		echo "<br>";
 		for($i = 0 ; $i < count($survey->getResponses()) ; $i++) {
 			?>
-			<div class="fluid-row">
-				<div class="span2"><?= $tableauReponses[$i]; ?></div>
+			<div class="fluid-row" style="display: flex;"> <!-- display: flex; permet de correctement séparer les réponses malgès leur longueur --> 
+				<div class="span2" style="overflow: auto;"><?= $tableauReponses[$i]; ?></div>
 				<div class="span2 progress progress-striped active">
 					<div class="bar" style="width: <?= $tableauPctages[$i]; ?>%"></div>
 				</div>

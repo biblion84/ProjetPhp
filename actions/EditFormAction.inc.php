@@ -5,11 +5,12 @@ require_once("actions/Action.inc.php");
 class EditFormAction extends Action {
 
     /**
-     * Supprime le sondage et en recrée un avec les mêmes parramètres
-     * Supprime aussi les votes, pour éviter tout abus !
-     *
-     * @see Action::run()
-     */
+    * Supprime le sondage et en recrée un avec les mêmes parramètres
+    * Supprime aussi les votes, pour éviter tout abus !
+    * Renvoie vers la vue de création de sondage avec les l'ancien sondage pré-remplis
+    *
+    * @see Action::run()
+    */
     public function run() {
 
         if ($this->getSessionLogin()===null) {
@@ -21,7 +22,6 @@ class EditFormAction extends Action {
         if ($rep) {
             $_SESSION['survey'] = $survey;
             $this->setView(getViewByName("ModSurveyForm"));
-            //unset($_SESSION['survey']);
             return;
         }
         else {

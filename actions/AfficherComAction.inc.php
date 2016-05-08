@@ -7,10 +7,10 @@ require_once("actions/Action.inc.php");
 class AfficherComAction extends Action {
 
     /**
-     * Active ou désactive globalement les commentaires
-     *
-     * @see Action::run()
-     */
+    * Active ou désactive globalement les commentaires
+    *
+    * @see Action::run()
+    */
     public function run() {
         if ($_SESSION["afficherCom"] == false) {
             $_SESSION["afficherCom"] = true;

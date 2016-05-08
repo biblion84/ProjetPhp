@@ -5,11 +5,11 @@ require_once("actions/Action.inc.php");
 class DeleteFormAction extends Action {
 
     /**
-     * Delete un sondage
-     * Revérifie que l'user est propriétaire du sondage
-     *
-     * @see Action::run()
-     */
+    * Delete un sondage
+    * Revérifie que l'user est propriétaire du sondage
+    *
+    * @see Action::run()
+    */
     public function run() {
 
         if ($this->getSessionLogin()===null) {
