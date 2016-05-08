@@ -1,5 +1,5 @@
 # ProjetPhp
-On va tout niquer
+On va tout donner
 A fond jte jure !
 
 -----------------------------------------------------------------------------
