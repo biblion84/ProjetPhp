@@ -33,6 +33,7 @@ function getAction() {
 			'Vote',
 			'AfficherCom',
 			'AddComment',
+			'DeleteForm',
 			'EditForm',
 			'Edit');
 

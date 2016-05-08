@@ -197,7 +197,13 @@ class Database {
 	public function addComm($comm, $survId, $login) {
 			$req = $this->connection->prepare('INSERT INTO `comments` (`nick_owner`, `id_survey`, `date`, `texte`) VALUES ( :nick_owner, :id_survey, :datenow, :texte );');
 			$req->execute(array("nick_owner" => htmlspecialchars($login),"id_survey" => htmlspecialchars($survId), "datenow" => date('Y-m-d'), "texte" => htmlspecialchars($comm)));
-			GT4Elog();
+			return $req;
+	}
+
+	public function sondageDelete($survId) {
+			// gei owner from surveyid
+			$req = $this->connection->prepare('DELETE FROM `surveys` WHERE id=?');
+			$req->execute(array(htmlspecialchars($survId)));
 			return $req;
 	}
 
