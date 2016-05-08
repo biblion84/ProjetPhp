@@ -35,6 +35,7 @@ function getAction() {
 		'AddComment',
 		'DeleteForm',
 		'EditForm',
+		'Verif',
 		'Edit');
 
 		if (!in_array($action, $actions)) $action = 'Default';

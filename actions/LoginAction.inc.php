@@ -18,6 +18,10 @@ class LoginAction extends Action {
 			$this->setView(getViewByName("Default"));
 			$this->setMessageView("Pseudo ou mot de passe incorrect.");
 		}
+		elseif ($this->database->isVerifFromNick($_POST['nickname']) == false) {
+			$this->setView(getViewByName("Default"));
+			$this->setMessageView("Email non vérifié, regardez votre boite mail."); //TODO: REMETTRE UN LIEN ENVOYER MAIL
+		}
 		else {
 			$this->setSessionLogin($_POST['nickname']);
 			$this->setView(getViewByName("Default"));

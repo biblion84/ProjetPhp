@@ -13,6 +13,12 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label class="control-label" for="signUpEmail">Email</label>
+			<div class="controls">
+				<input type="email" name="signUpEmail" placeholder="Email">
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label" for="signUpPassword">Mot de passe</label>
 			<div class="controls">
 				<input type="password" name="signUpPassword" placeholder="Mot de passe">

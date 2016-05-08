@@ -21,19 +21,25 @@ class SignUpAction extends Action {
 	* @see Action::run()
 	*/
 	public function run() {
-		if ($_POST['signUpPassword'] != $_POST['signUpPassword2']) {
+		if (!isset($_POST['signUpLogin']) || !isset($_POST['signUpPassword']) || !isset($_POST['signUpPassword2']) || !isset($_POST['signUpEmail'])) {
+			$this->setSignUpFormView("Erreur, il manque des informations");
+		}
+		elseif ($_POST['signUpPassword'] != $_POST['signUpPassword2']) {
 			$this->setSignUpFormView("Les mots de passe ne correspondent pas");
 		}
+		elseif (!filter_var($_POST['signUpEmail'], FILTER_VALIDATE_EMAIL)) {
+			$this->setSignUpFormView("L'email n'est pas correcte");
+		}
 		else {
-			$logonTest = $this->database->addUser($_POST['signUpLogin'], $_POST['signUpPassword']);
+			$verif = uniqid('GT4E_', true); //genere un identifiant unique
+			$logonTest = $this->database->addUser($_POST['signUpLogin'], $_POST['signUpPassword'], $_POST['signUpEmail'], $verif);
 			if ($logonTest != "true") {
 				$message = $logonTest;
 				$this->setSignUpFormView($message);
 			}
 			else {
-				$message = "L'utilisateur ".$_POST['signUpLogin']." a été correctement créé.";
-				$this->setSessionLogin($_POST['signUpLogin']);
-				$this->setSessionId($this->database->getIdFromUser($_SESSION['login']));
+				$this->database->sendEmailVerif($_POST['signUpEmail']);
+				$message = "L'utilisateur ".$_POST['signUpLogin']." a été correctement créé. Merci de Valider l'adresse email.";
 				$this->setMessageView($message);
 			}
 

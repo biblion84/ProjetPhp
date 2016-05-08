@@ -2,7 +2,7 @@
 require_once("model/Survey.inc.php");
 require_once("model/Response.inc.php");
 
-class Database { 
+class Database {
 
 	private $connectDB;
 	private $connection;
@@ -41,7 +41,9 @@ class Database {
 		$this->connection->exec("CREATE TABLE IF NOT EXISTS users (".
 		"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 		"nickname VARCHAR(20) NOT NULL UNIQUE,".
-		"email VARCHAR(255) NOT NULL,". //TODO : rajouter l'email lors de l'inscription
+		"email VARCHAR(255) NOT NULL,".
+		"verif VARCHAR(255) NOT NULL,".
+		"verified BOOLEAN NOT NULL DEFAULT FALSE,". //False par défaut, et true si l'email est vérifié
 		"password VARCHAR(255) NOT NULL,".
 		"PRIMARY KEY(id)".
 		");");
@@ -117,6 +119,20 @@ class Database {
 		else return false;
 	}
 
+	/**
+	* Vérifie la disponibilité d'un email.
+	*
+	* @param string $email Email à vérifier.
+	* @return boolean True si le pseudonyme est disponible, false sinon.
+	*/
+	private function checkEmailAvailability($email) {
+		$req = $this->connection->prepare('SELECT nickname FROM users WHERE email=?');
+		$req->execute(array(htmlspecialchars($email)));
+		$reponse = $req->rowCount();
+		if($reponse == 0) return true; // si le tableau est vide = le nom n'est pas pris
+		else return false;
+	}
+
 
 	/**
 	* Vérifie qu'un couple (pseudonyme, mot de passe) est correct.
@@ -155,7 +171,7 @@ class Database {
 	/**
 	* Récupère un ID depuis un user.
 	*
-	* @param string $user , le nick d'user.
+	* @param string $user le nick d'user.
 	* @return string retourne le id.
 	*/
 	public function getIdFromUser($user) {
@@ -163,6 +179,32 @@ class Database {
 		$req->execute(array(htmlspecialchars($user)));
 		$reponse = $req->fetch(PDO::FETCH_ASSOC);
 		return $reponse;
+	}
+
+	/**
+	* Récupère un code de verif depuis un email.
+	*
+	* @param string $email l'email d'un d'user.
+	* @return string retourne le code de verif.
+	*/
+	public function getVerifFromEmail($email) {
+		$req = $this->connection->prepare('SELECT verif FROM users WHERE email=?');
+		$req->execute(array(htmlspecialchars($email)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		return $reponse["verif"];
+	}
+
+	/**
+	* Vérifie su un email est vérifié.
+	*
+	* @param string $nickname nickname d'un d'user.
+	* @return bool
+	*/
+	public function isVerifFromNick($nickname) {
+		$req = $this->connection->prepare('SELECT verified FROM users WHERE nickname=?');
+		$req->execute(array(htmlspecialchars($nickname)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		return $reponse["verified"];
 	}
 
 	/**
@@ -179,6 +221,69 @@ class Database {
 		return $reponse;
 	}
 
+	/**
+	* Envoie email de vérification à l'utilisateur.
+	*
+	* @param string $email
+	*/
+	public function sendEmailVerif($email) {
+		$req = $this->connection->prepare('SELECT verif FROM users WHERE email=?');
+		$req->execute(array(htmlspecialchars($email)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		$verif = $reponse['verif'];
+
+		$subject = "Goto4Ever - Verification de votre email";
+		$content = "
+		<html>
+			<head>
+				<title>Message de Goto4Ever.com</title>
+				<style>
+					h1 {
+						font-size: 1.5em;
+						font-weight: 700;
+						color: #252122;
+						padding-top: 20px;
+						padding-bottom: 20px;
+					}
+					h2 {
+						font-size: 1.25em;
+						font-weight: 700;
+						color: #252122;
+					}
+					div {
+						border-style: solid;
+						border-width: 2px;
+						background: linear-gradient(135deg, #fff 0%,#f0f0f0 100%);
+						border-radius: 20px;
+						padding: 20px;
+					}
+					li {
+						padding-top: 10px;
+					}
+					hr {
+							border-top: medium double;
+					}
+				</style>
+			</head>
+			<body>
+				<h1>Goto4Ever.com</h1>
+				<div>
+					<center><h2>Merci de cliquer sur ce lien pour confirmer votre inscription sur Goto4Ever.com</h2></center>
+					<hr>
+						<a href=\"http://site.goto4ever.com/index.php?action=Verif&verif=$verif&email=$email\"><b>Lien de confirmation : </b>http://site.goto4ever.com/index.php?action=Verif&verif=$verif&email=$email</a>
+				</div>
+			</body>
+		</html>
+		";
+		$headers = 'From: donotreply@goto4ever.com' . "\r\n" .
+					     'Reply-To: donotreply@goto4ever.com' . "\r\n" .
+					     'X-Mailer: PHP/' . phpversion() . "\r\n" .
+							 'MIME-Version: 1.0' . "\r\n".
+							 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+		mail($email, $subject, $content, $headers);
+		}
+
 
 	/**
 	* Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
@@ -188,7 +293,7 @@ class Database {
 	* @param string $password Mot de passe.
 	* @return boolean|string True si le couple a été ajouté avec succès, un message d'erreur sinon.
 	*/
-	public function addUser($nickname, $password) {
+	public function addUser($nickname, $password, $email, $verif) {
 		if ($this->checkNicknameValidity($nickname) == false) {
 			return "Le pseudo doit contenir entre 3 et 15 lettres.";
 		}
@@ -198,10 +303,13 @@ class Database {
 		elseif ($this->checkNicknameAvailability($nickname) == false) {
 			return "Le pseudo existe déjà.";
 		}
+		elseif ($this->checkEmailAvailability($email) == false) {
+			return "L'email existe déjà.";
+		}
 		else {
 			$password = hash('sha256', $password);
-			$req = $this->connection->prepare('INSERT INTO `users` (`id`, `nickname`, `password`) VALUES (NULL, :nickname, :password);');
-			$req->execute(array("nickname" => htmlspecialchars($nickname),"password" => htmlspecialchars($password)));
+			$req = $this->connection->prepare('INSERT INTO `users` (`id`, `nickname`, `password`, `email`, `verif`) VALUES (NULL, :nickname, :password, :email, :verif);');
+			$req->execute(array("nickname" => htmlspecialchars($nickname),"password" => htmlspecialchars($password),"email" => htmlspecialchars($email),"verif" => htmlspecialchars($verif)));
 			return "true";
 		}
 
@@ -262,6 +370,15 @@ class Database {
 		return true;
 	}
 
+	/**
+	* Change le bool verif en true (vérifie un email)
+	*
+	* @param string $email Email de l'utilisateur.
+	*/
+	public function setVerifFromEmail($email) {
+		$req = $this->connection->prepare('UPDATE `users` SET `verified` = TRUE WHERE `email` = :email;');
+		$req->execute(array("email" => htmlspecialchars($email)));
+	}
 
 	/**
 	* Sauvegarde un sondage dans la base de donnée et met à jour les indentifiants
