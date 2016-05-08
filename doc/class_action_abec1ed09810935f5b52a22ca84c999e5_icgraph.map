@@ -1,5 +1,0 @@
-<map id="getSessionLogin" name="getSessionLogin">
-<area shape="rect" id="node2" href="$class_add_survey_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="AddSurveyAction\\run" alt="" coords="187,5,330,32"/>
-<area shape="rect" id="node3" href="$class_add_survey_form_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="AddSurveyFormAction\\run" alt="" coords="172,56,345,83"/>
-<area shape="rect" id="node4" href="$class_get_my_surveys_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="GetMySurveysAction\\run" alt="" coords="175,107,342,133"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="getView" name="getView">
-<area shape="rect" id="node2" href="$class_action.html#a9bd2ebdc8cb9836ba9b0f1d574fb1116" title="setMessageView" alt="" coords="144,107,265,133"/>
-<area shape="rect" id="node3" href="$class_add_survey_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="AddSurveyAction\\run" alt="" coords="351,5,494,32"/>
-<area shape="rect" id="node5" href="$class_sign_up_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="SignUpAction\\run" alt="" coords="361,157,484,184"/>
-<area shape="rect" id="node6" href="$class_update_user_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="UpdateUserAction\\run" alt="" coords="348,208,497,235"/>
-<area shape="rect" id="node8" href="$class_get_my_surveys_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="GetMySurveysAction\\run" alt="" coords="121,259,288,285"/>
-<area shape="rect" id="node4" href="$class_add_survey_form_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="AddSurveyFormAction\\run" alt="" coords="336,107,509,133"/>
-<area shape="rect" id="node7" href="$class_vote_action.html#afb0fafe7e02a3ae1993c01c19fad2bae" title="VoteAction\\run" alt="" coords="369,56,477,83"/>
-</map>

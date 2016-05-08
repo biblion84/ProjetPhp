@@ -1,0 +1,109 @@
+.TH "Action" 3 "Sun May 8 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Action \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBAddCommentAction\fP, \fBAddSurveyAction\fP, \fBAddSurveyFormAction\fP, \fBAfficherComAction\fP, \fBDefaultAction\fP, \fBGetMySurveysAction\fP, \fBLoginAction\fP, \fBLogoutAction\fP, \fBSearchAction\fP, \fBSignUpAction\fP, \fBSignUpFormAction\fP, \fBUpdateUserAction\fP, \fBUpdateUserFormAction\fP, and \fBVoteAction\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ()"
+.br
+.ti -1c
+.RI "\fBgetView\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSessionLogin\fP ()"
+.br
+.ti -1c
+.RI "\fBrun\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsetView\fP ($view)"
+.br
+.ti -1c
+.RI "\fBsetSessionLogin\fP ($login)"
+.br
+.ti -1c
+.RI "\fBsetMessageView\fP ($message, $style='')"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$database\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ()"
+Construit une instance de la classe \fBAction\fP\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "getSessionLogin ()"
+Récupére la pseudonyme de l'utilisateur s'il est connecté, ou null sinon\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string Pseudonyme de l'utilisateur ou null\&. 
+.RE
+.PP
+
+.SS "getView ()"
+Retourne la vue qui doit être affichée par le contrôleur\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBView\fP Vue qui doit être affichée par le contrôleur\&. 
+.RE
+.PP
+
+.SS "run ()\fC [abstract]\fP"
+Méthode qui doit être implémentée par chaque action afin de décrire son comportement\&. 
+.SS "setMessageView ( $message,  $style = \fC''\fP)\fC [protected]\fP"
+Fixe la vue de façon à afficher un message à l'utilisateur\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$message\fP Message à afficher à l'utilisateur\&. 
+.br
+\fI$style\fP style de l'affichage\&. 
+.RE
+.PP
+
+.SS "setSessionLogin ( $login)\fC [protected]\fP"
+Sauvegarde le pseudonyme de l'utilisateur dans la session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$login\fP Pseudonyme de l'utilisateur\&. 
+.RE
+.PP
+
+.SS "setView ( $view)\fC [protected]\fP"
+Fixe la vue qui doit être affichée par le contrôleur\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$view\fP Vue qui doit être affichée par le contrôleur\&. 
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "$database\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.
