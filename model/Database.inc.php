@@ -32,19 +32,16 @@ class Database {
 	/**
 	 * Initialise la base de données ouverte dans la variable $connection.
 	 * Cette méthode crée, si elles n'existent pas, les trois tables :
-	 * - une table users(nickname char(20), password char(50));
-	 * - une table surveys(id integer primary key autoincrement,
-	 *						owner char(20), question char(255));
-	 * - une table responses(id integer primary key autoincrement,
-	 *		id_survey integer,
-	 *		title char(255),
-	 *		count integer);
+	 * - une table users(pour les utilisateurs)
+	 * - une table surveys(pour les sondages)
+	 * - une table votes(pour les votes)
+	 * - une table comments(Pour commenter un sondage)
 	 */
 	 private function CreateDatabase() {
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS users (".
 	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"nickname VARCHAR(20) NOT NULL UNIQUE,".
-	 	"email VARCHAR(255) NOT NULL,".
+	 	"email VARCHAR(255) NOT NULL,". //TODO : rajouter l'email lors de l'inscription
 	 	"password VARCHAR(255) NOT NULL,".
 	 	"PRIMARY KEY(id)".
 	 	");");
@@ -53,10 +50,10 @@ class Database {
 	 	"id INT NOT NULL UNIQUE AUTO_INCREMENT,".
 	 	"owner_id INT NOT NULL,". // Jointure avec 'users'
 	 	"question VARCHAR(255) NOT NULL,".
-	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'reponse1;reponse2;reponse3'
-		"responses TEXT NOT NULL,".  // Stockées sous la forme '45;25;68'
+	 	"choices TEXT NOT NULL,". // Stockées sous la forme 'choix1;choix2;choix3'
+		"responses TEXT NOT NULL,".  // TODO: A ENLEVER, MAINTENANT INUTILE - Stockées sous la forme '45;25;68'
 	 	"PRIMARY KEY(id),".
-	  "FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE".
+	  "FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE". // Permet de supprimer un soindage si un user est supprimé
 	 	");");
 
 	 	$this->connection->exec("CREATE TABLE IF NOT EXISTS comments (".
