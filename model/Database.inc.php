@@ -298,10 +298,10 @@ class Database {
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
 	public function loadSurveysByOwner($owner) {
-		$req = $this->connection->prepare('SELECT * FROM surveys INNER JOIN users ON surveys.owner_id=users.id WHERE nickname=?');
-		$req->execute(array(htmlspecialchars($owner)));
+		$owner = $this->getIdFromUser($owner);
+		$req = $this->connection->prepare('SELECT * FROM surveys WHERE owner_id=?');
+		$req->execute(array(htmlspecialchars($owner['id'])));
 		$arraySurveys = $req->fetchAll();
-
 		$arraySurveys = $this->loadSurveys($arraySurveys);
 
 		return $arraySurveys;
@@ -346,7 +346,6 @@ class Database {
 		$req = $this->connection->prepare('SELECT * FROM surveys ORDER BY id DESC');
 		$req->execute();
 		$arraySurveys = $req->fetchAll();
-
 		$arraySurveys = $this->loadSurveys($arraySurveys);
 
 		return $arraySurveys;
