@@ -215,13 +215,14 @@ class Database {
 	}
 
 	public function sondageDelete($survId) {
+			$survIdOld = $survId;
 			$survId = $this->getUserFromSurveyId($survId);
-			if ($survId != $_SESSION['login']) {
+			if ($survId['nickname'] != $_SESSION['login']) {
 				return false;
 			}
 			else {
 				$req = $this->connection->prepare('DELETE FROM `surveys` WHERE id=?');
-				$req->execute(array(htmlspecialchars($survId['nickname'])));
+				$req->execute(array(htmlspecialchars($survIdOld)));
 				return $req;
 			}
 
