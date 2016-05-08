@@ -1,0 +1,18 @@
+<map id="Action" name="Action">
+<area shape="rect" id="node2" href="$class_add_comment_action.html" title="{AddCommentAction\n||+ run()\l}" alt="" coords="5,233,144,311"/>
+<area shape="rect" id="node3" href="$class_add_survey_action.html" title="{AddSurveyAction\n||+ run()\l}" alt="" coords="169,233,290,311"/>
+<area shape="rect" id="node4" href="$class_add_survey_form_action.html" title="{AddSurveyFormAction\n||+ run()\l}" alt="" coords="314,233,465,311"/>
+<area shape="rect" id="node5" href="$class_afficher_com_action.html" title="{AfficherComAction\n||+ run()\l}" alt="" coords="489,233,618,311"/>
+<area shape="rect" id="node6" href="$class_default_action.html" title="{DefaultAction\n||+ run()\l}" alt="" coords="643,233,741,311"/>
+<area shape="rect" id="node7" href="$class_delete_form_action.html" title="{DeleteFormAction\n||+ run()\l}" alt="" coords="766,233,893,311"/>
+<area shape="rect" id="node8" href="$class_edit_form_action.html" title="{EditFormAction\n||+ run()\l}" alt="" coords="917,233,1029,311"/>
+<area shape="rect" id="node9" href="$class_get_my_surveys_action.html" title="{GetMySurveysAction\n||+ run()\l}" alt="" coords="1053,233,1197,311"/>
+<area shape="rect" id="node10" href="$class_login_action.html" title="{LoginAction\n||+ run()\l}" alt="" coords="1221,233,1312,311"/>
+<area shape="rect" id="node11" href="$class_logout_action.html" title="{LogoutAction\n||+ run()\l}" alt="" coords="1336,233,1435,311"/>
+<area shape="rect" id="node12" href="$class_search_action.html" title="{SearchAction\n||+ run()\l}" alt="" coords="1459,233,1559,311"/>
+<area shape="rect" id="node13" href="$class_sign_up_action.html" title="{SignUpAction\n||+ run()\l}" alt="" coords="1584,233,1685,311"/>
+<area shape="rect" id="node14" href="$class_sign_up_form_action.html" title="{SignUpFormAction\n||+ run()\l}" alt="" coords="1709,233,1840,311"/>
+<area shape="rect" id="node15" href="$class_update_user_action.html" title="{UpdateUserAction\n||+ run()\l}" alt="" coords="1865,233,1991,311"/>
+<area shape="rect" id="node16" href="$class_update_user_form_action.html" title="{UpdateUserFormAction\n||+ run()\l}" alt="" coords="2016,233,2173,311"/>
+<area shape="rect" id="node17" href="$class_vote_action.html" title="{VoteAction\n||+ run()\l}" alt="" coords="2198,233,2285,311"/>
+</map>
