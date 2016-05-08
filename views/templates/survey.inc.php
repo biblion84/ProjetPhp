@@ -50,6 +50,9 @@
 					for ($i=0; $i < count($survey->getComm()) ; $i++) {
 						echo "<blockquote><p>".$comms[$i]["texte"]."</p><footer style=\"font-size: 80%;color: #777;\">- écrit par ".$comms[$i]["nick_owner"]." le ".$comms[$i]["date"]." </footer></blockquote>";
 					}
+					if (count($survey->getComm()) == 0) {
+						echo "<p style=\"font-size: 80%;color: #777;\" > - Il n'y a aucun commentaire sur ce sondage.</p>";
+					}
 					echo "</div></li>";
 					if (isset($_SESSION["login"])) {
 					?>
