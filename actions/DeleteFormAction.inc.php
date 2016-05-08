@@ -18,16 +18,15 @@ class DeleteFormAction extends Action {
         }
 
 
-        $rep = sondageDelete($_GET["sid"]);
+        $rep = $this->database->sondageDelete($_GET["sid"]);
         if ($rep) {
             $this->setMessageView("Vous avez correctement effacé votre sondage.");
             return;
         }
-
-
-        $this->setMessageView("Erreur.", "alert-error");
-
-
+        else {
+            $this->setMessageView("Erreur, vous ne pouvez pas supprimer ce sondage.", "alert-error");
+            return;
+        }
 
     }
 

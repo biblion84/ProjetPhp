@@ -166,6 +166,20 @@ class Database {
 		return $reponse;
 	}
 
+	/**
+	 * Récupère un Nickname depuis un ID du sondage.
+	 *
+	 * @param string $surv_id ID du sondage.
+	 * @return string retourne le nickname.
+	 */
+	public function getUserFromSurveyId($surv_id) {
+		$req = $this->connection->prepare('SELECT owner_id FROM surveys WHERE id=?');
+		$req->execute(array(htmlspecialchars($surv_id)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		$reponse = $this->getUserFromId($reponse['owner_id']);
+		return $reponse;
+	}
+
 
 	/**
 	 * Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
@@ -201,10 +215,16 @@ class Database {
 	}
 
 	public function sondageDelete($survId) {
-			// gei owner from surveyid
-			$req = $this->connection->prepare('DELETE FROM `surveys` WHERE id=?');
-			$req->execute(array(htmlspecialchars($survId)));
-			return $req;
+			$survId = $this->getUserFromSurveyId($survId);
+			if ($survId != $_SESSION['login']) {
+				return false;
+			}
+			else {
+				$req = $this->connection->prepare('DELETE FROM `surveys` WHERE id=?');
+				$req->execute(array(htmlspecialchars($survId['nickname'])));
+				return $req;
+			}
+
 	}
 
 	/**
