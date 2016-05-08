@@ -6,7 +6,7 @@
         if (isset($_SESSION['id']['id']) && ($_SESSION['id']['id'] == $survey->getOwner()))
         { ?>
 					<div style="text-align: right; display: block;">
-						<a href="#"><i class="icon-pencil"></i> </a>
+						<a href="<?php echo $_SERVER['PHP_SELF'].'?action=EditForm&sid='.$survey->getId();?>"><i class="icon-pencil"></i> </a>
 						<a href="<?php echo $_SERVER['PHP_SELF'].'?action=DeleteForm&sid='.$survey->getId();?>"><i class="icon-trash"></i> </a>
 					</div>
         <?php

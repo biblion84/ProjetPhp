@@ -308,6 +308,19 @@ class Database {
 	}
 
 	/**
+	 * Charge l'ensemble des sondages d'un id dans une variable.
+	 *
+	 * @param string $sid ID du sondage.
+	 * @return array : Sondage trouvé par la fonction.
+	 */
+	public function loadSurveysById($sid) {
+		$req = $this->connection->prepare('SELECT * FROM surveys WHERE id=?');
+		$req->execute(array(htmlspecialchars($sid)));
+		$array = $req->fetchAll();
+		return $array;
+	}
+
+	/**
 	 * Charge l'ensemble des commantaires d'un sondage.
 	 *
 	 * @param string $survey id du sondage.
