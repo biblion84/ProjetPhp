@@ -66,6 +66,12 @@ class Survey {
 		$this->votes[] = $vote;
 	}
 
+	/**
+	* Calcule les % de votes
+	*
+	* @param array int $votes
+	* @return void
+	*/
 	public function computePercentages($votes) {
 		$total = 0;
 
