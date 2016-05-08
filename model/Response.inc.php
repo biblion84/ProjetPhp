@@ -1,6 +1,6 @@
 <?php
 class Response {
-	
+
 	private $id;
 	private $survey;
 	private $title;
@@ -18,11 +18,6 @@ class Response {
 		$this->id = $id;
 	}
 	
-	public function computePercentage($total) {
-		/* TODO START */
-		/* TODO END */
-	}
-
 	public function getId() {
 		return $this->id;
 	}
@@ -30,15 +25,15 @@ class Response {
 	public function getSurvey() {
 		return $this->survey;
 	}
-	
-	public function getTitle() {	
+
+	public function getTitle() {
 		return $this->title;
 	}
 
 	public function getCount() {
 		return $this->count;
 	}
-	
+
 	public function getPercentage() {
 		return $this->percentage;
 	}

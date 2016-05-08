@@ -270,21 +270,6 @@ class Database {
 
 	}
 
-
-	/**
-	 * Sauvegarde une réponse dans la base de donnée et met à jour son indentifiant.
-	 *
-	 * @param Response $response Réponse à sauvegarder.
-	 * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
-	 */
-	private function saveResponse($response) {
-		/* TODO START */
-		//WHAT THE FUCK COMMENT ON SAIT A QUEL ROW AJOUTER LES REPONSES SI ON DONNE PAS L'ID DE LA SURVEY
-		/* TODO END */
-		return true;
-	}
-
-
 	/**
 	 * Charge l'ensemble des sondages créés par un utilisateur.
 	 *
@@ -412,33 +397,12 @@ class Database {
 				$votes[] = $resp;
 				$sondage->addVote($votes[$j]);
 			}
-
 			$sondage->computePercentages($votes);
 
 			array_push($all_surveys, $sondage);
 		}
 
 		return $all_surveys;
-	}
-
-
-
-	/**
-	 * Construit un tableau de réponses à partir d'un tableau de ligne de la table 'responses'.
-	 * Ce tableau a été obtenu à l'aide de la méthode fetchAll() de PDO.
-	 *
-	 * @param Survey $survey Le sondage.
-	 * @param array $arraySurveys Tableau de lignes.
-	 * @return array(Response)|boolean Le tableau de réponses ou false si une erreur s'est produite.
-	 */
-
-	/* Ignorer cette fonction ? Elle peut être faite dans loadSurveys, et on n'a pas de table Responses donc elle devient inutile (Romain) */
-
-	private function loadResponses($survey, $arrayResponses) {
-		$responses = array();
-		/* TODO START */
-		/* TODO END */
-		return $responses;
 	}
 
 }
