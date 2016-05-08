@@ -53,6 +53,10 @@ abstract class Action {
 		$_SESSION['login'] = $login;
 	}
 
+	protected function setSessionId($Sid) {
+		$_SESSION['id'] = $Sid;
+	}
+
 	/**
 	 * Fixe la vue de façon à afficher un message à l'utilisateur.
 	 * 
