@@ -156,6 +156,19 @@ class Database {
 		return $reponse;
 	}
 
+	/**
+	 * Récupère un ID depuis un user.
+	 *
+	 * @param string $user , le nick d'user.
+	 * @return string retourne le id.
+	 */
+	public function getIdFromUser($user) {
+		$req = $this->connection->prepare('SELECT id FROM users WHERE nickname=?');
+		$req->execute(array(htmlspecialchars($user)));
+		$reponse = $req->fetch(PDO::FETCH_ASSOC);
+		return $reponse;
+	}
+
 
 	/**
 	 * Ajoute un nouveau compte utilisateur si le pseudonyme est valide et disponible et
