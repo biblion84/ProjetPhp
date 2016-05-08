@@ -3,9 +3,9 @@
 		<h3>Modification du mot de passe</h3>
 	</div>
 	<div class="form-horizontal modal-body">
-<?php	if ($this->message!=="")
-			echo '<div class="alert "'.$this->style.'">'.$this->message.'</div>';
-?>
+		<?php	if ($this->message!=="")
+		echo '<div class="alert "'.$this->style.'">'.$this->message.'</div>';
+		?>
 		<div class="control-group">
 			<label class="control-label" for="signUpLogin">Pseudo</label>
 			<div class="controls">

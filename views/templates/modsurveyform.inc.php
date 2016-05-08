@@ -1,7 +1,7 @@
 <?php
 
 function generateInputForResponse($n) {
-$reponses = explode(';', $_SESSION['survey'][0]['responses']);
+	$reponses = explode(';', $_SESSION['survey'][0]['responses']);
 	?>
 	<div class="control-group">
 		<label class="control-label" for="responseSurvey<?php echo $n; ?>">Réponse <?php echo $n; ?></label>
@@ -9,7 +9,7 @@ $reponses = explode(';', $_SESSION['survey'][0]['responses']);
 			<input class="span3" type="text" name="responseSurvey<?php echo $n; ?>" placeholder="Réponse <?php echo $n; ?>" value="<?php echo $reponses[$n-1]; ?>">
 		</div>
 	</div>
-<?php
+	<?php
 }
 ?>
 
@@ -19,7 +19,7 @@ $reponses = explode(';', $_SESSION['survey'][0]['responses']);
 	</div>
 	<div class="form-horizontal modal-body">
 		<?php	if ($this->message!=="")
-			echo '<div class="alert '.$this->style.'">'.$this->message.'</div>';
+		echo '<div class="alert '.$this->style.'">'.$this->message.'</div>';
 		?>
 		<div class="control-group">
 			<label class="control-label" for="questionSurvey">Question</label>
@@ -29,8 +29,8 @@ $reponses = explode(';', $_SESSION['survey'][0]['responses']);
 		</div>
 		<br>
 		<?php
-			for ($i = 1; $i <= 5; $i++)
-				generateInputForResponse($i);
+		for ($i = 1; $i <= 5; $i++)
+		generateInputForResponse($i);
 		?>
 	</div>
 	<div class="modal-footer">

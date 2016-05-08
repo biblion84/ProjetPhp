@@ -4,5 +4,3 @@
 	<input class="span2" placeholder="Mot de passe" name="password"	type="password" />
 	<input class="btn" name="connexionConnexion" type="submit" value="Connexion" />
 </form>
-
-

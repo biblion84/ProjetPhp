@@ -3,20 +3,20 @@
 		<h4 class="media-heading"><?= $survey->getQuestion() ?></h4>
 
 		<?php
-        if (isset($_SESSION['id']['id']) && ($_SESSION['id']['id'] == $survey->getOwner()))
-        { ?>
-					<div style="text-align: right; display: block;">
-						<a href="<?php echo $_SERVER['PHP_SELF'].'?action=EditForm&sid='.$survey->getId();?>"><i class="icon-pencil"></i> </a>
-						<a href="<?php echo $_SERVER['PHP_SELF'].'?action=DeleteForm&sid='.$survey->getId();?>"><i class="icon-trash"></i> </a>
-					</div>
-        <?php
-        }
+		if (isset($_SESSION['id']['id']) && ($_SESSION['id']['id'] == $survey->getOwner()))
+		{ ?>
+			<div style="text-align: right; display: block;">
+				<a href="<?php echo $_SERVER['PHP_SELF'].'?action=EditForm&sid='.$survey->getId();?>"><i class="icon-pencil"></i> </a>
+				<a href="<?php echo $_SERVER['PHP_SELF'].'?action=DeleteForm&sid='.$survey->getId();?>"><i class="icon-trash"></i> </a>
+			</div>
+			<?php
+		}
 		$tableauReponses = $survey->getResponses();
 		$tableauPctages = $survey->getPercentages();
 		echo "<br>";
 		for($i = 0 ; $i < count($survey->getResponses()) ; $i++) {
 			?>
-			<div class="fluid-row" style="display: flex;"> <!-- display: flex; permet de correctement séparer les réponses malgès leur longueur --> 
+			<div class="fluid-row" style="display: flex;"> <!-- display: flex; permet de correctement séparer les réponses malgès leur longueur -->
 				<div class="span2" style="overflow: auto;"><?= $tableauReponses[$i]; ?></div>
 				<div class="span2 progress progress-striped active">
 					<div class="bar" style="width: <?= $tableauPctages[$i]; ?>%"></div>
@@ -39,8 +39,8 @@
 		}
 
 		else { ?>
-			</div></li>
-			<a href="<?php echo $_SERVER['PHP_SELF'].'?action=AfficherCom';?>">Cacher les commentaire</a>
+		</div></li>
+		<a href="<?php echo $_SERVER['PHP_SELF'].'?action=AfficherCom';?>">Cacher les commentaire</a>
 		<li class="media well">
 			<div class="media-body">
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?action=AddComment'; ?>">
@@ -55,19 +55,19 @@
 					}
 					echo "</div></li>";
 					if (isset($_SESSION["login"])) {
-					?>
-					<li class="media well">
-					<div class="media-body">
-					<label class="sr-only" for="inputHelpBlock"><strong>Ajouter un Commentaire</strong></label>
-					<input type="text" class="span6" name="commentaire">
-					<input type="submit" class="btn" value="Commenter">
-					<?php }
-					else {
-						echo "<li class=\"media well\"><div class=\"media-body\"><ul><li>Connectez-vous pour pouvoir commenter.</li></ul>";
-					}
-					 ?>
-				</form>
-			</div>
-		</li>
-		<hr>
-		<?php } ?>
+						?>
+						<li class="media well">
+							<div class="media-body">
+								<label class="sr-only" for="inputHelpBlock"><strong>Ajouter un Commentaire</strong></label>
+								<input type="text" class="span6" name="commentaire">
+								<input type="submit" class="btn" value="Commenter">
+								<?php }
+								else {
+									echo "<li class=\"media well\"><div class=\"media-body\"><ul><li>Connectez-vous pour pouvoir commenter.</li></ul>";
+								}
+								?>
+							</form>
+						</div>
+					</li>
+					<hr>
+					<?php } ?>

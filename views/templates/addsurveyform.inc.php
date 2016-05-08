@@ -8,7 +8,7 @@ function generateInputForResponse($n) {
 			<input class="span3" type="text" name="responseSurvey<?php echo $n; ?>" placeholder="Réponse <?php echo $n; ?>">
 		</div>
 	</div>
-<?php
+	<?php
 }
 ?>
 
@@ -18,7 +18,7 @@ function generateInputForResponse($n) {
 	</div>
 	<div class="form-horizontal modal-body">
 		<?php	if ($this->message!=="")
-			echo '<div class="alert '.$this->style.'">'.$this->message.'</div>';
+		echo '<div class="alert '.$this->style.'">'.$this->message.'</div>';
 		?>
 		<div class="control-group">
 			<label class="control-label" for="questionSurvey">Question</label>
@@ -27,15 +27,12 @@ function generateInputForResponse($n) {
 			</div>
 		</div>
 		<br>
-		<?php 
-			for ($i = 1; $i <= 5; $i++)
-				generateInputForResponse($i);
+		<?php
+		for ($i = 1; $i <= 5; $i++)
+		generateInputForResponse($i);
 		?>
 	</div>
 	<div class="modal-footer">
 		<input class="btn btn-danger" type="submit"	value="Poster le sondage" />
 	</div>
 </form>
-
-
-

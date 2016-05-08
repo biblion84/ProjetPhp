@@ -19,30 +19,30 @@ function getAction() {
 	else $action = $_REQUEST['action'];
 
 	$actions = array( // toutes les actions possibles
-			'Default',
-			'SignUpForm',
-			'SignUp',
-			'Logout',
-			'Login',
-			'UpdateUserForm',
-			'UpdateUser',
-			'AddSurveyForm',
-			'AddSurvey',
-			'GetMySurveys',
-			'Search',
-			'Vote',
-			'AfficherCom',
-			'AddComment',
-			'DeleteForm',
-			'EditForm',
-			'Edit');
+		'Default',
+		'SignUpForm',
+		'SignUp',
+		'Logout',
+		'Login',
+		'UpdateUserForm',
+		'UpdateUser',
+		'AddSurveyForm',
+		'AddSurvey',
+		'GetMySurveys',
+		'Search',
+		'Vote',
+		'AfficherCom',
+		'AddComment',
+		'DeleteForm',
+		'EditForm',
+		'Edit');
 
-	if (!in_array($action, $actions)) $action = 'Default';
-	return getActionByName($action);
-}
-$action = getAction();
-$action->run();
-$view = $action->getView();
-$action->getView()->setLogin($action->getSessionLogin());
-$view->run();
-?>
+		if (!in_array($action, $actions)) $action = 'Default';
+		return getActionByName($action);
+	}
+	$action = getAction();
+	$action->run();
+	$view = $action->getView();
+	$action->getView()->setLogin($action->getSessionLogin());
+	$view->run();
+	?>
