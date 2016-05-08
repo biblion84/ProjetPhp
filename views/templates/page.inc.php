@@ -10,7 +10,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-            <center><font color="#CECECE"> Projet PHP r&eacute;alis&eacute; par Marion Donat, Johann Natouri, Romain Ros, Lucas Dominguez et Quentin Miltgen  </font></center>
+            <center><font color="#CECECE"> Projet PHP r&eacute;alis&eacute; par Romain Ros, Lucas Dominguez et Quentin Miltgen  </font></center>
 				<?php
 				$this->displaySearchForm();
 				if ($this->login===null) $this->displayLoginForm();
