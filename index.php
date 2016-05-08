@@ -32,7 +32,9 @@ function getAction() {
 			'Search',
 			'Vote',
 			'AfficherCom',
-			'AddComment');
+			'AddComment',
+			'EditForm',
+			'Edit');
 
 	if (!in_array($action, $actions)) $action = 'Default';
 	return getActionByName($action);
