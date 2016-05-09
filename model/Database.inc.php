@@ -244,13 +244,14 @@ class Database {
 						color: #252122;
 						padding-top: 20px;
 						padding-bottom: 20px;
+						text-align: center;
 					}
 					h2 {
 						font-size: 1.25em;
 						font-weight: 700;
 						color: #252122;
 					}
-					div {
+					.div {
 						border-style: solid;
 						border-width: 2px;
 						background: linear-gradient(135deg, #fff 0%,#f0f0f0 100%);
@@ -265,7 +266,7 @@ class Database {
 					}
 				</style>
 			</head>
-			<body>
+			<body class=\"div\" >
 				<h1>Goto4Ever.com</h1>
 				<div>
 					<center><h2>Merci de cliquer sur ce lien pour confirmer votre inscription sur Goto4Ever.com</h2></center>
